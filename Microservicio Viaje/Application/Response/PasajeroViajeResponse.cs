@@ -9,5 +9,6 @@ namespace Application.Response
     public class PasajeroViajeResponse
     {
         public PasajeroResponse pasajero { get; set; }
+        //public ViajeResponse viaje { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Domain.Entities
         public int CiudadOrigen { get; set; }
         public int CiudadDestino { get; set; }
         public int TransporteId { get; set; }
-        public int ServicioId { get; set; }
+        public int ServicioId { get; set; } //No va más
         public string Duracion { get; set; }
         public DateTime HorarioSalida { get; set; }
         public DateTime HorarioLlegada { get; set; }
