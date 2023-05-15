@@ -23,13 +23,20 @@ namespace Microservicio_Viaje.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult CreatePasajero(PasajeroRequest request) 
         {
-            var result = _pasajeroService.CreatePasajero(request);
-            if(result == null)
+            try
             {
-                return new StatusCodeResult(StatusCodes.Status500InternalServerError);
-            }
+                var result = _pasajeroService.CreatePasajero(request);
+                if (result == null)
+                {
+                    return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+                }
 
-            return new JsonResult(result) { StatusCode = StatusCodes.Status201Created };
+                return new JsonResult(result) { StatusCode = StatusCodes.Status201Created };
+            }
+            catch(InvalidOperationException ex) 
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]

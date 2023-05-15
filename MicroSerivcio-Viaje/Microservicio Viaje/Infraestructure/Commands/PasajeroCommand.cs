@@ -23,6 +23,10 @@ namespace Infraestructure.Commands
         public Pasajero Create(PasajeroRequest pasajeroRequest)
         {
             Viaje viaje = _context.Viaje.Find(pasajeroRequest.viajeId);
+            if(viaje == null)
+            {
+                throw new InvalidOperationException("El viaje no existe en la base de datos");
+            }
             Pasajero newPasajero = new Pasajero
             {
                 Nombre = pasajeroRequest.nombre,

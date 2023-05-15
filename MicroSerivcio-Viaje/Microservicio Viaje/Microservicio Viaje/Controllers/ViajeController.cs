@@ -37,7 +37,7 @@ namespace Microservicio_Viaje.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ViajeResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BadRequest))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(BadRequest))]
-        public IActionResult GeViajeById(int id)
+        public IActionResult GetViajeById(int id)
         {
             var result = _viajeServices.GetViajeById(id);
             if (result == null)
