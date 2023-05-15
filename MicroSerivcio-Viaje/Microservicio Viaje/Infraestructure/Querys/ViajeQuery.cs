@@ -40,5 +40,17 @@ namespace Infraestructure.Querys
 
             return pasajeros;
         }
+
+        public List<Viaje> GetViajes(string tipo)
+        {
+            IEnumerable<Viaje> viajes = _context.Viaje;
+            if (!string.IsNullOrEmpty(tipo)) 
+            {
+                viajes = viajes.Where(v => v.TipoViaje.ToLower().Contains(tipo));
+            }
+            viajes = viajes.ToList();
+
+            return (List<Viaje>)viajes;
+        }
     }
 }

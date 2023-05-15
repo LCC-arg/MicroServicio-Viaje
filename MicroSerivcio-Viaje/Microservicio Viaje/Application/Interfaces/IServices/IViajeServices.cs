@@ -14,6 +14,7 @@ namespace Application.Interfaces.IServices
         ViajeResponse CreateViaje(ViajeRequest viajeRequest);
         IEnumerable<ViajeResponse> GetAllViajes();
         ViajeResponse GetViajeById(int viajeId);
+        List<ViajeResponse> GetViajes(string tipo);
         ViajeResponse AddViaje(Viaje viaje);
         ViajeResponse UpdateViaje(int viajeId, ViajeRequest viajeRequest);
         ViajeResponse DeleteViaje(int viajeId);

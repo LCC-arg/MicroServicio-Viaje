@@ -151,5 +151,33 @@ namespace Application.UseCase
                 tipoViaje = viaje.TipoViaje
             };
         }
+
+        public List<ViajeResponse> GetViajes(string tipo)
+        {
+            var viajes = _viajeQuery.GetViajes(tipo);
+            List<ViajeResponse> viajeResponses = new List<ViajeResponse>();
+            if(viajes != null)
+            {
+                foreach(Viaje viaje in viajes) 
+                {
+                    ViajeResponse viajeResponse = new ViajeResponse
+                    {
+                        id = viaje.ViajeId,
+                        ciudadOrigen = viaje.CiudadOrigen,
+                        ciudadDestino = viaje.CiudadDestino,
+                        transporteId = viaje.TransporteId,
+                        duracion = viaje.Duracion,
+                        horarioSalida = viaje.HorarioSalida,
+                        horarioLlegada = viaje.HorarioLlegada,
+                        fechaSalida = viaje.FechaSalida,
+                        fechaLlegada = viaje.FechaLlegada,
+                        tipoViaje = viaje.TipoViaje
+                    };
+                    viajeResponses.Add(viajeResponse);
+                }
+                return viajeResponses;
+            }
+            return null;
+        }
     }
 }
