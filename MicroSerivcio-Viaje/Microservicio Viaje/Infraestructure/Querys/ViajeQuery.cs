@@ -41,12 +41,22 @@ namespace Infraestructure.Querys
             return pasajeros;
         }
 
-        public IEnumerable<Viaje> GetViajes(string tipo)
+        public IEnumerable<Viaje> GetViajes(string? tipo, DateTime? fechaSalida, DateTime? fechaLlegada)
         {
             IEnumerable<Viaje> viajes = _context.Viaje;
             if (!string.IsNullOrEmpty(tipo)) 
             {
                 viajes = viajes.Where(v => v.TipoViaje.ToLower().Contains(tipo));
+            }
+
+            if (fechaSalida != null)
+            {
+                viajes = viajes.Where(v => v.FechaSalida >= fechaSalida);
+            }
+
+            if (fechaLlegada != null)
+            {
+                viajes = viajes.Where(v => v.FechaLlegada <= fechaLlegada);
             }
             viajes = viajes.ToList();
 

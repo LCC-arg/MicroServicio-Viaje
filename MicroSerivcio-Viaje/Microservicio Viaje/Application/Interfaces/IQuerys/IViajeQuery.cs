@@ -12,6 +12,6 @@ namespace Application.Interfaces.IQuerys
         IEnumerable<Viaje> GetAll();
         Viaje GetById(int viajeId);
         List<Pasajero> GetAllPasajerosById(int viajeId);
-        IEnumerable<Viaje> GetViajes(string tipo);
+        IEnumerable<Viaje> GetViajes(string tipo, DateTime fechaSalida, DateTime fechaLlegada);
     }
 }
