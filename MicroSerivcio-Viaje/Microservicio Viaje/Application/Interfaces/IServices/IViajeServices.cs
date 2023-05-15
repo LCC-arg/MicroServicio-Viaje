@@ -17,5 +17,7 @@ namespace Application.Interfaces.IServices
         ViajeResponse AddViaje(Viaje viaje);
         ViajeResponse UpdateViaje(int viajeId, ViajeRequest viajeRequest);
         ViajeResponse DeleteViaje(int viajeId);
+
+        List<PasajeroResponse> GetAllPasajerosById(int viajeId);
     }
 }

@@ -71,7 +71,7 @@ namespace Microservicio_Viaje.Controllers
 
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(PasajeroResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(NotFoundObjectResult), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(BadRequest), StatusCodes.Status404NotFound)]
         public IActionResult UpdatePasajero(int id, PasajeroRequest request)
         {
             var result = _pasajeroService.UpdatePasajero(id, request);

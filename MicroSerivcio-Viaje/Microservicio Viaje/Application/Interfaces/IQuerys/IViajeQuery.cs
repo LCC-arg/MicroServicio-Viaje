@@ -11,5 +11,6 @@ namespace Application.Interfaces.IQuerys
     {
         IEnumerable<Viaje> GetAll();
         Viaje GetById(int viajeId);
+        List<Pasajero> GetAllPasajerosById(int viajeId);
     }
 }

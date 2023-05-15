@@ -29,5 +29,16 @@ namespace Infraestructure.Querys
             return _context.Viaje
                 .FirstOrDefault(v => v.ViajeId == viajeId);
         }
+
+        public List<Pasajero> GetAllPasajerosById(int viajeId)
+        {
+            Viaje viaje = _context.Viaje
+                .Include(v => v.Pasajeros)
+                .FirstOrDefault(v => v.ViajeId == viajeId);
+
+            List<Pasajero> pasajeros = viaje.Pasajeros;
+
+            return pasajeros;
+        }
     }
 }

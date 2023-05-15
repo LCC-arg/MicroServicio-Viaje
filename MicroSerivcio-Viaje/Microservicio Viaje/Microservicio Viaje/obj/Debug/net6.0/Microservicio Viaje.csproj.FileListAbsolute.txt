@@ -262,3 +262,91 @@ C:\Users\Peceta\Downloads\Microservicio Viaje\MicroSerivcio-Viaje\Microservicio 
 C:\Users\Peceta\Downloads\Microservicio Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.pdb
 C:\Users\Peceta\Downloads\Microservicio Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.genruntimeconfig.cache
 C:\Users\Peceta\Downloads\Microservicio Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\ref\Microservicio Viaje.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\appsettings.json
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microservicio Viaje.exe
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microservicio Viaje.deps.json
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microservicio Viaje.runtimeconfig.json
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microservicio Viaje.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microservicio Viaje.pdb
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Azure.Core.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Azure.Identity.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Humanizer.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.Memory.Data.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Application.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Domain.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Infraestructure.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Infraestructure.pdb
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Application.pdb
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Domain.pdb
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.csproj.AssemblyReference.cache
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.AssemblyInfoInputs.cache
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.AssemblyInfo.cs
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.csproj.CoreCompileInputs.cache
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\scopedcss\bundle\Microservicio Viaje.styles.css
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.csproj.CopyComplete
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\refint\Microservicio Viaje.dll
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.pdb
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.genruntimeconfig.cache
+C:\Users\gonzalo.corsiglia\Desktop\Viaje\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\ref\Microservicio Viaje.dll

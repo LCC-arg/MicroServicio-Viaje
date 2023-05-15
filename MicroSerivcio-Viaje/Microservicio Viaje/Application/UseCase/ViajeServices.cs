@@ -16,7 +16,6 @@ namespace Application.UseCase
     {
         private readonly IViajeCommand _viajeCommand;
         private readonly IViajeQuery _viajeQuery;
-        private object viajeQuery;
 
         public ViajeServices(IViajeCommand viajeCommand, IViajeQuery viajeQuery)
         {
@@ -97,6 +96,31 @@ namespace Application.UseCase
                     tipoViaje = viaje.TipoViaje
                 };
                 return viajeResponse;
+            }
+            return null;
+        }
+
+        public List<PasajeroResponse> GetAllPasajerosById(int viajeId) 
+        {
+            var viaje = _viajeQuery.GetById(viajeId);
+            List<PasajeroResponse> pasajerosResponse = new List<PasajeroResponse>();    
+            if(viaje != null) 
+            {
+                foreach(Pasajero pasajero in viaje.Pasajeros)
+                {
+                    PasajeroResponse pasajeroResponse = new PasajeroResponse
+                    {
+                        id = pasajero.PasajeroId,
+                        nombre = pasajero.Nombre,
+                        apellido = pasajero.Apellido,
+                        dni = pasajero.Dni,
+                        fechaNacimiento = pasajero.FechaNacimiento,
+                        genero = pasajero.Genero,
+                        numContactoEmergencia = pasajero.NumContactoEmergencia,
+                    };
+                    pasajerosResponse.Add(pasajeroResponse);
+                }
+                return pasajerosResponse;
             }
             return null;
         }
