@@ -37,6 +37,7 @@ namespace Infraestructure.Commands
             };
 
             _context.Pasajero.Add(newPasajero);
+            viaje.Pasajeros.Add(newPasajero);
 
             _context.SaveChanges();
             return newPasajero;

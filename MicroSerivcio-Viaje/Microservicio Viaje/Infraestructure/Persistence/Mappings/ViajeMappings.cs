@@ -16,6 +16,11 @@ namespace Infraestructure.Persistence.Mappings
             builder.ToTable("Viaje");
             builder.HasKey(v => v.ViajeId);
 
+            builder
+               .HasMany(v => v.Pasajeros)
+               .WithOne(p => p.Viaje)
+               .IsRequired();
+
             builder.Property(v => v.ViajeId).ValueGeneratedOnAdd();
             builder.Property(v => v.CiudadOrigen).IsRequired();
             builder.Property(v => v.CiudadDestino).IsRequired();
