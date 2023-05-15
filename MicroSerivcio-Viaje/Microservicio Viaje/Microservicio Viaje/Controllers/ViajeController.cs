@@ -94,7 +94,7 @@ namespace Microservicio_Viaje.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(BadRequest), StatusCodes.Status400BadRequest)]
-        public IActionResult GetComandas(string tipo)
+        public IActionResult GetViajes(string tipo)
         {
             var result = _viajeServices.GetViajes(tipo);
 

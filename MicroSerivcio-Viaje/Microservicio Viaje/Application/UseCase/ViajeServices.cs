@@ -152,7 +152,7 @@ namespace Application.UseCase
             };
         }
 
-        public List<ViajeResponse> GetViajes(string tipo)
+        public IEnumerable<ViajeResponse> GetViajes(string tipo)
         {
             var viajes = _viajeQuery.GetViajes(tipo);
             List<ViajeResponse> viajeResponses = new List<ViajeResponse>();

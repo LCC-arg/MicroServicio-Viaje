@@ -133,6 +133,45 @@ namespace Application.UseCase
             return null;
         }
 
+        public IEnumerable<PasajeroResponse> GetPasajeros()
+        {
+            var pasajeros = _pasajeroQuery.GetPasajeros();
+            List<PasajeroResponse> pasajerosResponses = new List<PasajeroResponse>();    
+            if (pasajeros != null) 
+            {
+                foreach(Pasajero pasajero in pasajeros)
+                {
+                    var viaje = _viajeQuery.GetById(pasajero.ViajeId);
+                    PasajeroResponse pasajeroResponse = new PasajeroResponse
+                    {
+                        id = pasajero.PasajeroId,
+                        nombre = pasajero.Nombre,
+                        apellido = pasajero.Apellido,
+                        dni = pasajero.Dni,
+                        fechaNacimiento = pasajero.FechaNacimiento,
+                        genero = pasajero.Genero,
+                        numContactoEmergencia = pasajero.NumContactoEmergencia,
+                        viaje = new ViajeResponse
+                        {
+                            id = viaje.ViajeId,
+                            ciudadOrigen = viaje.CiudadOrigen,
+                            ciudadDestino = viaje.CiudadDestino,
+                            transporteId = viaje.TransporteId,
+                            duracion = viaje.Duracion,
+                            horarioSalida = viaje.HorarioSalida,
+                            horarioLlegada = viaje.HorarioLlegada,
+                            fechaSalida = viaje.FechaSalida,
+                            fechaLlegada = viaje.FechaLlegada,
+                            tipoViaje = viaje.TipoViaje
+                        }
+                    };
+                    pasajerosResponses.Add(pasajeroResponse);
+                }
+                return pasajerosResponses;
+            }
+            return null;
+        }
+
         public PasajeroResponse UpdatePasajero(int pasajeroId, PasajeroRequest pasajeroRequest)
         {
             _pasajeroCommand.Update(pasajeroId, pasajeroRequest);

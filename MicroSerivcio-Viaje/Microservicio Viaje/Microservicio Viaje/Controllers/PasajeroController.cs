@@ -81,5 +81,20 @@ namespace Microservicio_Viaje.Controllers
             }
             return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
         }
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(BadRequest), StatusCodes.Status400BadRequest)]
+        public IActionResult GetPasajeros(string nombre, string apellido)
+        {
+            var result = _pasajeroService.GetPasajeros(nombre, apellido);
+
+            if (result == null)
+            {
+                return NotFound(new { message = "No se encontraron pasajeros" });
+            }
+
+            return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
+        }
+
     }
 }

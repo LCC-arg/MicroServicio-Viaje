@@ -41,7 +41,7 @@ namespace Infraestructure.Querys
             return pasajeros;
         }
 
-        public List<Viaje> GetViajes(string tipo)
+        public IEnumerable<Viaje> GetViajes(string tipo)
         {
             IEnumerable<Viaje> viajes = _context.Viaje;
             if (!string.IsNullOrEmpty(tipo)) 
@@ -50,7 +50,7 @@ namespace Infraestructure.Querys
             }
             viajes = viajes.ToList();
 
-            return (List<Viaje>)viajes;
+            return viajes;
         }
     }
 }

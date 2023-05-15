@@ -17,5 +17,6 @@ namespace Application.Interfaces.IServices
         PasajeroResponse AddPasajero(Pasajero pasajero);
         PasajeroResponse UpdatePasajero(int pasajeroId, PasajeroRequest pasajeroRequest);
         PasajeroResponse DeletePasajero(int pasajeroId);
+        IEnumerable<PasajeroResponse> GetPasajeros(string nombre, string apellido);
     }
 }

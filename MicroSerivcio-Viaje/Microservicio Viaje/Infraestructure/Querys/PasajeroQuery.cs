@@ -28,5 +28,23 @@ namespace Infraestructure.Querys
             return _context.Pasajero
                 .FirstOrDefault(p => p.PasajeroId == pasajeroId);
         }
+
+        public IEnumerable<Pasajero> GetPasajeros(string nombre, string apellido)
+        {
+
+            IEnumerable<Pasajero> pasajeros = _context.Pasajero.Include(p => p.Viaje);
+            if (!string.IsNullOrEmpty(nombre))
+            {
+                pasajeros = pasajeros.Where(p => p.Nombre.ToLower().Contains(nombre));
+            }
+
+            if (!string.IsNullOrEmpty(apellido))
+            {
+                pasajeros = pasajeros.Where(p => p.Apellido.ToLower().Contains(apellido));
+            }
+
+            pasajeros.ToList();
+            return pasajeros;
+        }
     }
 }
