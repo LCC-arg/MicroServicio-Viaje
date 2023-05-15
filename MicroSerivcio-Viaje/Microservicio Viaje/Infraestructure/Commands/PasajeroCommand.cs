@@ -50,11 +50,13 @@ namespace Infraestructure.Commands
             Pasajero pasajero = _context.Pasajero
                 .Include(p => p.Viaje)
                 .FirstOrDefault(p => p.PasajeroId == pasajeroId);
+
             if (pasajero == null)
             {
                 return null;
             }
             _context.Pasajero.Remove(pasajero);
+
             _context.SaveChanges();
             return pasajero;
         }
