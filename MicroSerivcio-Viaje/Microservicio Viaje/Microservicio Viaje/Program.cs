@@ -26,9 +26,7 @@ builder.Services.AddScoped<IPasajeroQuery, PasajeroQuery>();
 builder.Services.AddScoped<IViajeServices, ViajeServices>();
 builder.Services.AddScoped<IViajeCommand, ViajeCommand>();
 builder.Services.AddScoped<IViajeQuery, ViajeQuery>();
-builder.Services.AddScoped<IPasajeroViajeServices, PasajeroViajeServices>();
-builder.Services.AddScoped<IPasajeroViajeCommand, PasajeroViajeCommand>();
-builder.Services.AddScoped<IPasajeroViajeQuery, PasajeroViajeQuery>();
+
 
 
 var app = builder.Build();

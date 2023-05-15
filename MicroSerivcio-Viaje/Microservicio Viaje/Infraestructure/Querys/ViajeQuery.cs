@@ -21,14 +21,12 @@ namespace Infraestructure.Querys
         public IEnumerable<Viaje> GetAll()
         {
             return _context.Viaje
-           .Include(v => v.PasajeroViajes)
            .ToList();
         }
 
         public Viaje GetById(int viajeId)
         {
             return _context.Viaje
-                .Include(v => v.PasajeroViajes)
                 .FirstOrDefault(v => v.ViajeId == viajeId);
         }
     }

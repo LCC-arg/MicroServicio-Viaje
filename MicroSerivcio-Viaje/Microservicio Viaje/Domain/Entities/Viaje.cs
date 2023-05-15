@@ -19,7 +19,6 @@ namespace Domain.Entities
         public DateTime FechaSalida { get; set; }
         public string TipoViaje { get; set; }
 
-        public List<PasajeroViaje> PasajeroViajes { get; set; }
        
     }
 }

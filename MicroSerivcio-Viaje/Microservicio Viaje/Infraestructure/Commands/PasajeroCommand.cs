@@ -35,17 +35,8 @@ namespace Infraestructure.Commands
                 Nacionalidad = pasajeroRequest.nacionalidad,
                 Viaje = viaje
             };
+
             _context.Pasajero.Add(newPasajero);
-
-            PasajeroViaje newPasajeroViaje = new PasajeroViaje
-            {
-                PasajeroId = newPasajero.PasajeroId,
-                ViajeId = viaje.ViajeId,
-                Pasajero = newPasajero,
-                Viaje = viaje
-            };
-
-            _context.PasajeroViaje.Add(newPasajeroViaje);
 
             _context.SaveChanges();
             return newPasajero;

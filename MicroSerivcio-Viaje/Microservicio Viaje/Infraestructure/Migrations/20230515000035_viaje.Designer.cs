@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infraestructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230510014253_MicroService")]
-    partial class MicroService
+    [Migration("20230515000035_viaje")]
+    partial class viaje
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,29 +68,6 @@ namespace Infraestructure.Migrations
                     b.ToTable("Pasajero", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.PasajeroViaje", b =>
-                {
-                    b.Property<int>("PasajeroViajeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PasajeroViajeId"));
-
-                    b.Property<int>("PasajeroId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ViajeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PasajeroViajeId");
-
-                    b.HasIndex("PasajeroId");
-
-                    b.HasIndex("ViajeId");
-
-                    b.ToTable("PasajeroViaje", (string)null);
-                });
-
             modelBuilder.Entity("Domain.Entities.Viaje", b =>
                 {
                     b.Property<int>("ViajeId")
@@ -121,9 +98,6 @@ namespace Infraestructure.Migrations
                     b.Property<DateTime>("HorarioSalida")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ServicioId")
-                        .HasColumnType("int");
-
                     b.Property<string>("TipoViaje")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -145,35 +119,6 @@ namespace Infraestructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Viaje");
-                });
-
-            modelBuilder.Entity("Domain.Entities.PasajeroViaje", b =>
-                {
-                    b.HasOne("Domain.Entities.Pasajero", "Pasajero")
-                        .WithMany("PasajeroViajes")
-                        .HasForeignKey("PasajeroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Entities.Viaje", "Viaje")
-                        .WithMany("PasajeroViajes")
-                        .HasForeignKey("ViajeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Pasajero");
-
-                    b.Navigation("Viaje");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Pasajero", b =>
-                {
-                    b.Navigation("PasajeroViajes");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Viaje", b =>
-                {
-                    b.Navigation("PasajeroViajes");
                 });
 #pragma warning restore 612, 618
         }

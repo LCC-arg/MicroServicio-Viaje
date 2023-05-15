@@ -11,7 +11,6 @@ namespace Infraestructure.Persistence
     public class AppDbContext : DbContext
     {
         public DbSet<Pasajero> Pasajero { get; set; }
-        public DbSet<PasajeroViaje> PasajeroViaje { get; set; }
         public DbSet<Viaje> Viaje { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options)

@@ -18,7 +18,7 @@ namespace Domain.Entities
         public int ViajeId { get; set; }
         public string Nacionalidad { get; set; }
         public Viaje Viaje { get; set; }
-        public List<PasajeroViaje> PasajeroViajes { get; set; }
+
 
     }
 }
