@@ -28,10 +28,11 @@ namespace Infraestructure.Querys
             return _context.Pasajero
                 .FirstOrDefault(p => p.PasajeroId == pasajeroId);
         }
-        public IEnumerable<Pasajero> GetPasajeros(string nombre, string apellido, DateTime? fechaNacimiento, int? dni, string nacionalidad, string genero)
+        public IEnumerable<Pasajero> GetPasajeros(string? nombre, string? apellido, DateTime? fechaNacimiento, int? dni, string? nacionalidad, string? genero)
         {
 
             IEnumerable<Pasajero> pasajeros = _context.Pasajero.Include(p => p.Viaje);
+
             if (!string.IsNullOrEmpty(nombre))
             {
                 pasajeros = pasajeros.Where(p => p.Nombre.ToLower().Contains(nombre));
@@ -59,9 +60,6 @@ namespace Infraestructure.Querys
             {
                 pasajeros = pasajeros.Where(p => p.Nacionalidad.ToLower().Contains(nacionalidad));
             }
-            
-
-            pasajeros.ToList();
 
             return pasajeros;
         }

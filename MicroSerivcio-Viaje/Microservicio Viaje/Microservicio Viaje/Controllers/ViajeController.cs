@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Microservicio_Viaje.Controllers
 {
     [Route("api/[controller]")]
+
     [ApiController]
     public class ViajeController : ControllerBase
     {
@@ -48,19 +49,26 @@ namespace Microservicio_Viaje.Controllers
             return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("pasajeros/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<PasajeroResponse>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BadRequest))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(BadRequest))]
         public IActionResult GetAllPasajerosById(int id)
         {
-            var result = _viajeServices.GetAllPasajerosById(id);
-            if (result == null)
+            try
             {
-                return NotFound(new { message = "No se encontraron pasajeros" });
-            }
+                var result = _viajeServices.GetAllPasajerosById(id);
+                if (result == null)
+                {
+                    return NotFound(new { message = "No se encontraron pasajeros" });
+                }
 
-            return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
+                return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
+            }
+            catch(InvalidOperationException ex) 
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
@@ -94,7 +102,7 @@ namespace Microservicio_Viaje.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(BadRequest), StatusCodes.Status400BadRequest)]
-        public IActionResult GetViajes(string tipo, DateTime fechaSalida, DateTime fechaLlegada)
+        public IActionResult GetViajes(string? tipo, DateTime? fechaSalida, DateTime? fechaLlegada)
         {
             var result = _viajeServices.GetViajes(tipo, fechaSalida, fechaLlegada);
 

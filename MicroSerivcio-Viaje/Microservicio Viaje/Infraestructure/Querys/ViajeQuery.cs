@@ -27,6 +27,7 @@ namespace Infraestructure.Querys
         public Viaje GetById(int viajeId)
         {
             return _context.Viaje
+                .Include(v => v.Pasajeros)
                 .FirstOrDefault(v => v.ViajeId == viajeId);
         }
 
@@ -51,14 +52,13 @@ namespace Infraestructure.Querys
 
             if (fechaSalida != null)
             {
-                viajes = viajes.Where(v => v.FechaSalida >= fechaSalida);
+                viajes = viajes.Where(v => v.FechaSalida.Date >= fechaSalida.Value.Date);
             }
 
             if (fechaLlegada != null)
             {
-                viajes = viajes.Where(v => v.FechaLlegada <= fechaLlegada);
+                viajes = viajes.Where(v => v.FechaLlegada.Date <= fechaLlegada.Value.Date);
             }
-            viajes = viajes.ToList();
 
             return viajes;
         }

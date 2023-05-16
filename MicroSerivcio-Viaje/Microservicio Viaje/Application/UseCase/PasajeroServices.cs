@@ -133,15 +133,14 @@ namespace Application.UseCase
             return null;
         }
 
-        public IEnumerable<PasajeroResponse> GetPasajeros()
+        public IEnumerable<PasajeroResponse> GetPasajeros(string? nombre, string? apellido, DateTime? fechaNacimiento, int? dni, string? nacionalidad, string? genero)
         {
-            var pasajeros = _pasajeroQuery.GetPasajeros();
+            var pasajeros = _pasajeroQuery.GetPasajeros(nombre, apellido, fechaNacimiento, dni, genero, nacionalidad);
             List<PasajeroResponse> pasajerosResponses = new List<PasajeroResponse>();    
             if (pasajeros != null) 
             {
                 foreach(Pasajero pasajero in pasajeros)
                 {
-                    var viaje = _viajeQuery.GetById(pasajero.ViajeId);
                     PasajeroResponse pasajeroResponse = new PasajeroResponse
                     {
                         id = pasajero.PasajeroId,
@@ -153,19 +152,19 @@ namespace Application.UseCase
                         numContactoEmergencia = pasajero.NumContactoEmergencia,
                         viaje = new ViajeResponse
                         {
-                            id = viaje.ViajeId,
-                            ciudadOrigen = viaje.CiudadOrigen,
-                            ciudadDestino = viaje.CiudadDestino,
-                            transporteId = viaje.TransporteId,
-                            duracion = viaje.Duracion,
-                            horarioSalida = viaje.HorarioSalida,
-                            horarioLlegada = viaje.HorarioLlegada,
-                            fechaSalida = viaje.FechaSalida,
-                            fechaLlegada = viaje.FechaLlegada,
-                            tipoViaje = viaje.TipoViaje
+                            id = pasajero.Viaje.ViajeId,
+                            ciudadOrigen = pasajero.Viaje.CiudadOrigen,
+                            ciudadDestino = pasajero.Viaje.CiudadDestino,
+                            transporteId = pasajero.Viaje.TransporteId,
+                            duracion = pasajero.Viaje.Duracion,
+                            horarioSalida = pasajero.Viaje.HorarioSalida,
+                            horarioLlegada = pasajero.Viaje.HorarioLlegada,
+                            fechaSalida = pasajero.Viaje.FechaSalida,
+                            fechaLlegada = pasajero.Viaje.FechaLlegada,
+                            tipoViaje = pasajero.Viaje.TipoViaje
                         }
                     };
-                    pasajerosResponses.Add(pasajeroResponse);
+                    pasajerosResponses.Add(pasajeroResponse);  
                 }
                 return pasajerosResponses;
             }

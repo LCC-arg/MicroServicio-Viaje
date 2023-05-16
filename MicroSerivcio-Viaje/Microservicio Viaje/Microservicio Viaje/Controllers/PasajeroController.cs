@@ -84,7 +84,7 @@ namespace Microservicio_Viaje.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(BadRequest), StatusCodes.Status400BadRequest)]
-        public IActionResult GetPasajeros(string nombre, string apellido, DateTime fechaNacimiento,int dni, string nacionalidad, string genero)
+        public IActionResult GetPasajeros(string? nombre, string? apellido, DateTime? fechaNacimiento,int? dni, string? nacionalidad, string? genero)
         {
             var result = _pasajeroService.GetPasajeros(nombre, apellido, fechaNacimiento, dni, genero, nacionalidad);
 

@@ -100,15 +100,19 @@ namespace Application.UseCase
             return null;
         }
 
-        public List<PasajeroResponse> GetAllPasajerosById(int viajeId) 
+        public List<GetAllPasajerosByIdResponse> GetAllPasajerosById(int viajeId) 
         {
             var viaje = _viajeQuery.GetById(viajeId);
-            List<PasajeroResponse> pasajerosResponse = new List<PasajeroResponse>();    
+            if(viaje == null) 
+            {
+                throw new InvalidOperationException("El viaje no existe en la base de datos");
+            }
+            List<GetAllPasajerosByIdResponse> pasajerosResponse = new List<GetAllPasajerosByIdResponse>();    
             if(viaje != null) 
             {
                 foreach(Pasajero pasajero in viaje.Pasajeros)
                 {
-                    PasajeroResponse pasajeroResponse = new PasajeroResponse
+                    GetAllPasajerosByIdResponse getAllPasajerosByIdResponse = new GetAllPasajerosByIdResponse
                     {
                         id = pasajero.PasajeroId,
                         nombre = pasajero.Nombre,
@@ -118,7 +122,7 @@ namespace Application.UseCase
                         genero = pasajero.Genero,
                         numContactoEmergencia = pasajero.NumContactoEmergencia,
                     };
-                    pasajerosResponse.Add(pasajeroResponse);
+                    pasajerosResponse.Add(getAllPasajerosByIdResponse);
                 }
                 return pasajerosResponse;
             }
@@ -152,7 +156,7 @@ namespace Application.UseCase
             };
         }
 
-        public IEnumerable<ViajeResponse> GetViajes(string tipo, DateTime fechaSalida, DateTime fechaLlegada)
+        public IEnumerable<ViajeResponse> GetViajes(string? tipo, DateTime? fechaSalida, DateTime? fechaLlegada)
         {
             var viajes = _viajeQuery.GetViajes(tipo, fechaSalida, fechaLlegada);
             List<ViajeResponse> viajeResponses = new List<ViajeResponse>();

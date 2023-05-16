@@ -14,11 +14,11 @@ namespace Application.Interfaces.IServices
         ViajeResponse CreateViaje(ViajeRequest viajeRequest);
         IEnumerable<ViajeResponse> GetAllViajes();
         ViajeResponse GetViajeById(int viajeId);
-        IEnumerable<ViajeResponse> GetViajes(string tipo, DateTime fechaSalida, DateTime fechaLlegada);
+        IEnumerable<ViajeResponse> GetViajes(string? tipo, DateTime? fechaSalida, DateTime? fechaLlegada);
         ViajeResponse AddViaje(Viaje viaje);
         ViajeResponse UpdateViaje(int viajeId, ViajeRequest viajeRequest);
         ViajeResponse DeleteViaje(int viajeId);
 
-        List<PasajeroResponse> GetAllPasajerosById(int viajeId);
+        List<GetAllPasajerosByIdResponse> GetAllPasajerosById(int viajeId);
     }
 }

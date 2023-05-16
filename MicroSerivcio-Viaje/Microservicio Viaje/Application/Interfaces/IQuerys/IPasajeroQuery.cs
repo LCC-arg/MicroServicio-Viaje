@@ -11,7 +11,7 @@ namespace Application.Interfaces.IQuerys
     {
         IEnumerable<Pasajero> GetAll();
         Pasajero GetById(int pasajeroId);
-        IEnumerable<Pasajero> GetPasajeros(string nombre, string apellido, DateTime? fechaNacimiento, int? dni, string nacionalidad, string genero);
+        IEnumerable<Pasajero> GetPasajeros(string? nombre, string? apellido, DateTime? fechaNacimiento, int? dni, string? nacionalidad, string? genero);
 
     }
 }
