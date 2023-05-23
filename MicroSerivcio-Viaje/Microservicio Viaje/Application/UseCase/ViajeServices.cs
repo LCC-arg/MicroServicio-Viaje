@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.ICommands;
+﻿using Application.Exceptions;
+using Application.Interfaces.ICommands;
 using Application.Interfaces.IQuerys;
 using Application.Interfaces.IServices;
 using Application.Request;
@@ -30,6 +31,19 @@ namespace Application.UseCase
 
         public ViajeResponse CreateViaje(ViajeRequest viajeRequest)
         {
+            if (!int.TryParse(viajeRequest.ciudadOrigen.ToString(), out _))
+            {
+                throw new BadRequestException("Formato de ciudad origen ingresado incorrecto");
+            }
+            else if (!int.TryParse(viajeRequest.ciudadDestino.ToString(), out _))
+            {
+                throw new BadRequestException("Formato de ciudad destino ingresado incorrecto");
+            }
+            else if (!int.TryParse(viajeRequest.transporteId.ToString(), out _))
+            {
+                throw new BadRequestException("Formato de ciudad transporte ingresado incorrecto");
+            }
+
             var result = _viajeCommand.Create(viajeRequest);
             ViajeResponse viajeResponse = new ViajeResponse
             {
@@ -49,13 +63,22 @@ namespace Application.UseCase
 
         public ViajeResponse DeleteViaje(int viajeId)
         {
+            if (!int.TryParse(viajeId.ToString(), out _))
+            {
+                throw new BadRequestException("Formato del Id de viaje incorrecto");
+            }
+
             var viaje = _viajeCommand.Delete(viajeId);
 
             if (viaje == null)
             {
-                return null;
+                throw new BadRequestException("No existe un viaje con ese Id");
             }
-            
+            if(viaje.Pasajeros.Count != 0)
+            {
+                throw new HasConflictException("No se puede eliminar el viaje ya que posee pasajeros");
+            }
+
             return new ViajeResponse
             {
                 id = viaje.ViajeId,

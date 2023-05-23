@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.IServices;
+﻿using Application.Exceptions;
+using Application.Interfaces.IServices;
 using Application.Request;
 using Application.Response;
 using Application.UseCase;
@@ -21,17 +22,21 @@ namespace Microservicio_Viaje.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(Viaje), StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(Viaje), 201)]
+        [ProducesResponseType(typeof(BadRequest),400)]
         public IActionResult CreatePasajero(ViajeRequest request)
         {
-            var result = _viajeServices.CreateViaje(request);
-            if (result == null)
+            try
             {
-                return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+                var result = _viajeServices.CreateViaje(request);
+
+                return new JsonResult(result) { StatusCode = StatusCodes.Status201Created };
+            }
+            catch(BadRequestException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
             }
 
-            return new JsonResult(result) { StatusCode = StatusCodes.Status201Created };
         }
 
         [HttpGet("{id}")]
@@ -77,13 +82,19 @@ namespace Microservicio_Viaje.Controllers
         [ProducesResponseType(typeof(BadRequest), 409)]
         public IActionResult DeleteViaje(int id)
         {
-            var result = _viajeServices.DeleteViaje(id);
-            if (result == null)
+            try
             {
-                return NotFound();
-            }
+                var result = _viajeServices.DeleteViaje(id);
 
-            return Ok(result);
+                return Ok(result);
+            }catch(BadRequestException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
+            }
+            catch(HasConflictException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 409 };
+            }
         }
 
         [HttpPut("{id}")]

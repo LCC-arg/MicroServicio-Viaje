@@ -58,16 +58,17 @@ namespace Microservicio_Viaje.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(PasajeroResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 400)]
-        [ProducesResponseType(typeof(BadRequest), 409)]
-        public async Task<IActionResult> DeleteMercaderia(int id)
+        public IActionResult DeletePasajero(int id)
         {
-            var result = _pasajeroService.DeletePasajero(id);
-            if (result == null)
+            try
             {
-                return NotFound();
+                var result = _pasajeroService.DeletePasajero(id);
+                return Ok(result);
             }
-
-            return Ok(result);
+            catch(BadRequestException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
+            }
         }
 
         [HttpPut("{id}")]

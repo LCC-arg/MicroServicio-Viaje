@@ -79,12 +79,18 @@ namespace Application.UseCase
 
         public PasajeroResponse DeletePasajero(int pasajeroId)
         {
+            if(!int.TryParse(pasajeroId.ToString(), out _))
+            {
+                throw new BadRequestException("Formato del Id de pasajero incorrecto");
+            }
+
             var pasajero = _pasajeroCommand.Delete(pasajeroId);
 
-            if(pasajero == null) 
+            if (pasajero == null)
             {
-                return null;
+                throw new BadRequestException("No existe pasajero con ese Id");
             }
+
             return new PasajeroResponse
             {
                 id = pasajero.PasajeroId,
