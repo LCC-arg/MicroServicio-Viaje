@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.IServices;
+﻿using Application.Exceptions;
+using Application.Interfaces.IServices;
 using Application.Request;
 using Application.Response;
 using Domain.Entities;
@@ -19,23 +20,23 @@ namespace Microservicio_Viaje.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(Pasajero), StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(Pasajero), 201)]
+        [ProducesResponseType(typeof(BadRequest), 400)]
+        [ProducesResponseType(typeof(BadRequest), 409)]
         public IActionResult CreatePasajero(PasajeroRequest request) 
         {
             try
             {
                 var result = _pasajeroService.CreatePasajero(request);
-                if (result == null)
-                {
-                    return new StatusCodeResult(StatusCodes.Status500InternalServerError);
-                }
-
                 return new JsonResult(result) { StatusCode = StatusCodes.Status201Created };
             }
-            catch(InvalidOperationException ex) 
+            catch(BadRequestException ex) 
             {
-                return NotFound(ex.Message);
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
+            }
+            catch(HasConflictException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 409 };
             }
         }
 

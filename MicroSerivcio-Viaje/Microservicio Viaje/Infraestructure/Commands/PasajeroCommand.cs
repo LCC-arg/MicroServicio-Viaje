@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.ICommands;
+﻿using Application.Exceptions;
+using Application.Interfaces.ICommands;
 using Application.Request;
 using Domain.Entities;
 using Infraestructure.Persistence;
@@ -25,7 +26,7 @@ namespace Infraestructure.Commands
             Viaje viaje = _context.Viaje.Find(pasajeroRequest.viajeId);
             if(viaje == null)
             {
-                throw new InvalidOperationException("El viaje no existe en la base de datos");
+                throw new HasConflictException("El viaje no existe en la base de datos");
             }
             Pasajero newPasajero = new Pasajero
             {

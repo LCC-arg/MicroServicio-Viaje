@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.ICommands;
+﻿using Application.Exceptions;
+using Application.Interfaces.ICommands;
 using Application.Interfaces.IQuerys;
 using Application.Interfaces.IServices;
 using Application.Request;
@@ -32,6 +33,22 @@ namespace Application.UseCase
 
         public PasajeroResponse CreatePasajero(PasajeroRequest pasajeroRequest)
         {
+            if (!ValidarInt(pasajeroRequest.dni))
+            {
+                throw new BadRequestException("Formato de dni ingresado incorrecto");
+            }
+            else if(!ValidarInt(pasajeroRequest.numContactoEmergencia))
+            {
+                throw new BadRequestException("Formato de numero de emergencia incorrecto");
+            }
+            IEnumerable<Pasajero> pasajeros = _pasajeroQuery.GetAll();
+            foreach(Pasajero pasajero in pasajeros)
+            {
+                if(pasajero.ViajeId == pasajeroRequest.viajeId && pasajero.Dni == pasajeroRequest.dni)
+                {
+                    throw new HasConflictException("Ya existe otro pasajero con su mismo dni en este viaje");
+                }
+            }
             var result = _pasajeroCommand.Create(pasajeroRequest);
             PasajeroResponse pasajeroResponse = new PasajeroResponse
             {
@@ -201,7 +218,11 @@ namespace Application.UseCase
             };
 
 
+        }
 
+        public bool ValidarInt(int dato)
+        {
+           return int.TryParse(dato.ToString(), out _);
         }
     }
 }
