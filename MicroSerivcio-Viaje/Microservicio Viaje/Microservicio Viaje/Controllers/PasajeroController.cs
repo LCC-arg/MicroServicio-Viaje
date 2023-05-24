@@ -41,18 +41,32 @@ namespace Microservicio_Viaje.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PasajeroResponse))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BadRequest))]
-        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(BadRequest))]
+        [ProducesResponseType(typeof(Pasajero), 200)]
+        [ProducesResponseType(typeof(BadRequest), 400)]
+        [ProducesResponseType(typeof(BadRequest), 404)]
         public IActionResult GetPasajeroById(int id)
         {
-            var result = _pasajeroService.GetPasajeroById(id);
-            if (result == null)
+            try
             {
-                return NotFound(new { message = "No se encontro el pasajero" });
-            }
 
-            return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
+                if (!int.TryParse(id.ToString(), out _))
+                {
+                    throw new BadRequestException("El formato de id ingresado es invalido");
+                }
+
+                var result = _pasajeroService.GetPasajeroById(id);
+
+
+                return Ok(result);
+            }
+            catch(BadRequestException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }){ StatusCode = 400 };
+            }
+            catch(NotFoundException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 404 };
+            }
         }
 
         [HttpDelete("{id}")]
@@ -84,18 +98,19 @@ namespace Microservicio_Viaje.Controllers
             return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
         }
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(BadRequest), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(IEnumerable<PasajeroResponse>), 200)]
+        [ProducesResponseType(typeof(BadRequest), 400)]
         public IActionResult GetPasajeros(string? nombre, string? apellido, DateTime? fechaNacimiento,int? dni, string? nacionalidad, string? genero)
         {
-            var result = _pasajeroService.GetPasajeros(nombre, apellido, fechaNacimiento, dni, genero, nacionalidad);
-
-            if (result == null)
+            try
             {
-                return NotFound(new { message = "No se encontraron pasajeros" });
+                var result = _pasajeroService.GetPasajeros(nombre, apellido, fechaNacimiento, dni, genero, nacionalidad);
+                return Ok(result);
             }
-
-            return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
+            catch(BadRequestException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
+            }
         }
 
     }

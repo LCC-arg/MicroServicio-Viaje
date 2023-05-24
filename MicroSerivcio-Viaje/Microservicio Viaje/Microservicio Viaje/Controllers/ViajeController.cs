@@ -40,39 +40,51 @@ namespace Microservicio_Viaje.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ViajeResponse))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BadRequest))]
-        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(BadRequest))]
+        [ProducesResponseType(typeof(PasajeroResponse), 200)]
+        [ProducesResponseType(typeof(BadRequest), 400)]
+        [ProducesResponseType(typeof(BadRequest), 404)]
         public IActionResult GetViajeById(int id)
         {
-            var result = _viajeServices.GetViajeById(id);
-            if (result == null)
+            try
             {
-                return NotFound(new { message = "No se encontro el viaje" });
-            }
+                if (!int.TryParse(id.ToString(), out _))
+                {
+                    throw new BadRequestException("El formato de id ingresado es invalido");
+                }
 
-            return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
+                var result = _viajeServices.GetViajeById(id);
+
+                return Ok(result);
+            }
+            catch(BadRequestException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
+            }
+            catch(NotFoundException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 404 };
+            }
         }
 
         [HttpGet("pasajeros/{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<PasajeroResponse>))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BadRequest))]
-        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(BadRequest))]
+        [ProducesResponseType(typeof(IEnumerable<GetAllPasajerosByIdResponse>), 200)]
+        [ProducesResponseType(typeof(BadRequest), 400)]
+        [ProducesResponseType(typeof(BadRequest), 404)]
         public IActionResult GetAllPasajerosById(int id)
         {
             try
             {
                 var result = _viajeServices.GetAllPasajerosById(id);
-                if (result == null)
-                {
-                    return NotFound(new { message = "No se encontraron pasajeros" });
-                }
 
-                return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
+                return Ok(result);
             }
-            catch(InvalidOperationException ex) 
+            catch(BadRequestException ex) 
             {
-                return NotFound(ex.Message);
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
+            }
+            catch(NotFoundException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 404 };
             }
         }
 
@@ -111,18 +123,22 @@ namespace Microservicio_Viaje.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(BadRequest), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(IEnumerable<ViajeResponse>), 200)]
+        [ProducesResponseType(typeof(BadRequest), 400)]
         public IActionResult GetViajes(string? tipo, DateTime? fechaSalida, DateTime? fechaLlegada)
         {
-            var result = _viajeServices.GetViajes(tipo, fechaSalida, fechaLlegada);
-
-            if (result == null)
+            try
             {
-                return NotFound(new { message = "No se encontraron viajes" });
+                var result = _viajeServices.GetViajes(tipo, fechaSalida, fechaLlegada);
+
+
+                return Ok(result);
+            }
+            catch(BadRequestException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
             }
 
-            return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
         }
     }
 }

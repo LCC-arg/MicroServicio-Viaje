@@ -124,6 +124,11 @@ namespace Application.UseCase
 
         public PasajeroResponse GetPasajeroById(int pasajeroId)
         {
+            if(int.TryParse(pasajeroId.ToString(), out _))
+            {
+                throw new BadRequestException("Formato de id del pasajero invalido");
+            }
+
             var pasajero = _pasajeroQuery.GetById(pasajeroId);
             var viaje = _viajeQuery.GetById(pasajero.ViajeId);
             if(pasajero != null) 
@@ -153,12 +158,22 @@ namespace Application.UseCase
                 };
                 return pasajeroResponse;
             }
-            return null;
+            throw new NotFoundException("No existe pasajero con ese id");
         }
 
         public IEnumerable<PasajeroResponse> GetPasajeros(string? nombre, string? apellido, DateTime? fechaNacimiento, int? dni, string? nacionalidad, string? genero)
         {
+            if (!int.TryParse(dni.ToString(), out _))
+            {
+                throw new BadRequestException("El formato de dni es invalido");
+            }
+            if(!DateTime.TryParse(fechaNacimiento.ToString(), out _))
+            {
+                throw new BadRequestException("El formato de la fecha de nacimiento es invalido");
+            }
+
             var pasajeros = _pasajeroQuery.GetPasajeros(nombre, apellido, fechaNacimiento, dni, genero, nacionalidad);
+
             List<PasajeroResponse> pasajerosResponses = new List<PasajeroResponse>();    
             if (pasajeros != null) 
             {

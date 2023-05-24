@@ -31,6 +31,8 @@ namespace Application.UseCase
 
         public ViajeResponse CreateViaje(ViajeRequest viajeRequest)
         {
+            DateTime horarioSalidaConvert;
+
             if (!int.TryParse(viajeRequest.ciudadOrigen.ToString(), out _))
             {
                 throw new BadRequestException("Formato de ciudad origen ingresado incorrecto");
@@ -42,6 +44,22 @@ namespace Application.UseCase
             else if (!int.TryParse(viajeRequest.transporteId.ToString(), out _))
             {
                 throw new BadRequestException("Formato de ciudad transporte ingresado incorrecto");
+            }
+            else if(!DateTime.TryParse(viajeRequest.horarioSalida.ToString(), out _))
+            {
+                throw new BadRequestException("Formato de horario de salida invalido");
+            }
+            else if (!DateTime.TryParse(viajeRequest.horarioLlegada.ToString(), out _))
+            {
+                throw new BadRequestException("Formato de horario de llegada invalido");
+            }
+            else if (!DateTime.TryParse(viajeRequest.fechaSalida.ToString(), out _))
+            {
+                throw new BadRequestException("Formato de fecha de salida invalido");
+            }
+            else if (!DateTime.TryParse(viajeRequest.fechaLlegada.ToString(), out _))
+            {
+                throw new BadRequestException("Formato de fecha de llegada invalido");
             }
 
             var result = _viajeCommand.Create(viajeRequest);
@@ -102,6 +120,11 @@ namespace Application.UseCase
 
         public ViajeResponse GetViajeById(int viajeId)
         {
+            if (int.TryParse(viajeId.ToString(), out _))
+            {
+                throw new BadRequestException("Formato de id del viaje invalido");
+            }
+
             var viaje= _viajeQuery.GetById(viajeId);
             if (viaje != null)
             {
@@ -120,20 +143,22 @@ namespace Application.UseCase
                 };
                 return viajeResponse;
             }
-            return null;
+            throw new NotFoundException("No existe viaje con ese Id");
         }
 
         public List<GetAllPasajerosByIdResponse> GetAllPasajerosById(int viajeId) 
         {
-            var viaje = _viajeQuery.GetById(viajeId);
-            if(viaje == null) 
+            if (int.TryParse(viajeId.ToString(), out _))
             {
-                throw new InvalidOperationException("El viaje no existe en la base de datos");
+                throw new BadRequestException("Formato de id del viaje invalido");
             }
-            List<GetAllPasajerosByIdResponse> pasajerosResponse = new List<GetAllPasajerosByIdResponse>();    
+
+            var viaje = _viajeQuery.GetById(viajeId);
+            
             if(viaje != null) 
             {
-                foreach(Pasajero pasajero in viaje.Pasajeros)
+                List<GetAllPasajerosByIdResponse> pasajerosResponse = new List<GetAllPasajerosByIdResponse>();
+                foreach (Pasajero pasajero in viaje.Pasajeros)
                 {
                     GetAllPasajerosByIdResponse getAllPasajerosByIdResponse = new GetAllPasajerosByIdResponse
                     {
@@ -149,7 +174,8 @@ namespace Application.UseCase
                 }
                 return pasajerosResponse;
             }
-            return null;
+
+            throw new NotFoundException("No existe un viaje con ese id");
         }
 
 
@@ -181,6 +207,15 @@ namespace Application.UseCase
 
         public IEnumerable<ViajeResponse> GetViajes(string? tipo, DateTime? fechaSalida, DateTime? fechaLlegada)
         {
+
+            if (!DateTime.TryParse(fechaSalida.ToString(), out _))
+            {
+                throw new BadRequestException("El formato de la fecha de salida es invalido");
+            }
+            if (!DateTime.TryParse(fechaLlegada.ToString(), out _))
+            {
+                throw new BadRequestException("El formato de la fecha de llegada es invalido");
+            }
             var viajes = _viajeQuery.GetViajes(tipo, fechaSalida, fechaLlegada);
             List<ViajeResponse> viajeResponses = new List<ViajeResponse>();
             if(viajes != null)
@@ -202,9 +237,8 @@ namespace Application.UseCase
                     };
                     viajeResponses.Add(viajeResponse);
                 }
-                return viajeResponses;
             }
-            return null;
+            return viajeResponses;
         }
     }
 }
