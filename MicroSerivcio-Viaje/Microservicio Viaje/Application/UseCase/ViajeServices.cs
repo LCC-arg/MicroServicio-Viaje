@@ -77,27 +77,37 @@ namespace Application.UseCase
                 FechaLlegada = viajeRequest.fechaLlegada,
                 TipoViaje = viajeRequest.tipoViaje
             };
+            dynamic response = Response(newViaje.TransporteId);
 
-            TransporteResponse response = Response(newViaje.TransporteId);
-            var result =  _viajeCommand.Insert(newViaje);
+            var viaje =  _viajeCommand.Insert(newViaje);
 
-
-
-
-            ViajeResponse viajeResponse = new ViajeResponse
+            return new ViajeResponse
             {
-                id = result.ViajeId,
-                ciudadOrigen = result.CiudadOrigen,
-                ciudadDestino = result.CiudadDestino,
-                transporte = response,
-                duracion = result.Duracion,
-                horarioSalida = result.HorarioSalida,
-                horarioLlegada = result.HorarioLlegada,
-                fechaSalida = result.FechaSalida,
-                fechaLlegada = result.FechaLlegada,
-                tipoViaje = result.TipoViaje
+                id = viaje.ViajeId,
+                ciudadOrigen = viaje.CiudadOrigen,
+                ciudadDestino = viaje.CiudadDestino,
+                transporte = new TransporteResponse
+                {
+                    id = response.id,
+                    tipoTransporte = new TipoTransporteResponse
+                    {
+                        id = response.tipoTransporteResponse.id,
+                        descripcion = response.tipoTransporteResponse.descripcion
+                    },
+                    companiaTransporte = new CompaniaTransporteResponse
+                    {
+                        id = response.companiaTransporteResponse.id,
+                        razonSocial = response.companiaTransporteResponse.razonSocial,
+                        cuit = response.companiaTransporteResponse.cuit
+                    }
+                },
+                duracion = viaje.Duracion,
+                horarioSalida = viaje.HorarioSalida,
+                horarioLlegada = viaje.HorarioLlegada,
+                fechaSalida = viaje.FechaSalida,
+                fechaLlegada = viaje.FechaLlegada,
+                tipoViaje = viaje.TipoViaje
             };
-            return viajeResponse;
         }
 
         public ViajeResponse DeleteViaje(int viajeId)
@@ -213,13 +223,27 @@ namespace Application.UseCase
             { 
                 return null; 
             }
-            TransporteResponse response = Response(viaje.TransporteId);
+            dynamic response = Response(viaje.TransporteId);
             return new ViajeResponse
             {
                 id = viaje.ViajeId,
                 ciudadOrigen = viaje.CiudadOrigen,
                 ciudadDestino = viaje.CiudadDestino,
-                transporte = response,
+                transporte = new TransporteResponse
+                {
+                    id = response.transporteId,
+                    tipoTransporteResponse = new TipoTransporteResponse
+                    {
+                        id = response.transporte.TipoTransporteId,
+                        descripcion = response.transporte.TipoTransporte.Descripcion
+                    },
+                    companiaTransporteResponse = new CompaniaTransporteResponse
+                    {
+                        id = response.transporte.CompaniaTransporteId,
+                        razonSocial = response.transporte.CompaniaTransporte.RazonSocial,
+                        cuit = response.transporte.CompaniaTransporte.Cuit
+                    }
+                },
                 duracion = viaje.Duracion,
                 horarioSalida = viaje.HorarioSalida,
                 horarioLlegada = viaje.HorarioLlegada,
@@ -247,6 +271,7 @@ namespace Application.UseCase
                 foreach(Viaje viaje in viajes) 
                 {
                     TransporteResponse response = Response(viaje.TransporteId);
+
                     ViajeResponse viajeResponse = new ViajeResponse
                     {
                         id = viaje.ViajeId,
@@ -265,9 +290,9 @@ namespace Application.UseCase
             }
             return viajeResponses;
         }
-        private TransporteResponse Response(int transporteId) 
+        private dynamic Response(int transporteId) 
         {
-            TransporteResponse response = _transporteApi.GetTransporteById(transporteId);
+            dynamic response = _transporteApi.GetTransporteById(transporteId);
             return response;
         }
     }

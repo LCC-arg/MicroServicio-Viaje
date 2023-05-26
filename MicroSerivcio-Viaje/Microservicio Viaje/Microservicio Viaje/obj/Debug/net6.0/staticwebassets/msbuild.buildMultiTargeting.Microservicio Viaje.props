@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Microservicio Viaje.props" />
+</Project>

@@ -9,7 +9,7 @@ namespace Application.Response
     public class TransporteResponse
     {
         public int id { get; set; }
-        public CompaniaTransporteResponse companiaTransporteResponse { get; set; }
-        public TipoTransporteResponse tipoTransporteResponse { get; set; }
+        public CompaniaTransporteResponse companiaTransporte { get; set; }
+        public TipoTransporteResponse tipoTransporte { get; set; }
     }
 }
