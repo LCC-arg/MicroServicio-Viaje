@@ -19,28 +19,7 @@ namespace Infraestructure.Commands
             _context = context;
         }
 
-        public Viaje Create(ViajeRequest viajeRequest)
-        {
-
-            Viaje newViaje = new Viaje
-            {
-                CiudadOrigen = viajeRequest.ciudadOrigen,
-                CiudadDestino = viajeRequest.ciudadDestino,
-                TransporteId = viajeRequest.transporteId,
-                Duracion = viajeRequest.duracion,
-                HorarioSalida = viajeRequest.horarioSalida,
-                HorarioLlegada = viajeRequest.horarioLlegada,
-                FechaSalida = viajeRequest.fechaSalida,
-                FechaLlegada = viajeRequest.fechaLlegada,
-                TipoViaje = viajeRequest.tipoViaje
-            };
-
-            _context.Viaje.Add(newViaje);
-
-            _context.SaveChanges();
-
-            return newViaje;
-        }
+   
         public Viaje Delete(int viajeId)
         {
             Viaje viaje = _context.Viaje
@@ -54,9 +33,13 @@ namespace Infraestructure.Commands
             return viaje;
         }
 
-        public void Insert(Viaje viaje)
+        public Viaje Insert(Viaje viaje)
         {
-            throw new NotImplementedException();
+            _context.Viaje.Add(viaje);
+
+            _context.SaveChanges();
+
+            return viaje;
         }
 
         public Viaje Update(int viajeId, ViajeRequest viajeRequest)

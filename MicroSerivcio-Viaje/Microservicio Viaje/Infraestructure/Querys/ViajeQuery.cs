@@ -47,17 +47,17 @@ namespace Infraestructure.Querys
             IEnumerable<Viaje> viajes = _context.Viaje;
             if (!string.IsNullOrEmpty(tipo)) 
             {
-                viajes = viajes.Where(v => v.TipoViaje.ToLower().Contains(tipo));
+                viajes = viajes.Where(v => v.TipoViaje.ToLower().Contains(tipo)).ToList();
             }
 
             if (fechaSalida != null)
             {
-                viajes = viajes.Where(v => v.FechaSalida.Date >= fechaSalida.Value.Date);
+                viajes = viajes.Where(v => v.FechaSalida.Date >= fechaSalida.Value.Date).ToList();
             }
 
             if (fechaLlegada != null)
             {
-                viajes = viajes.Where(v => v.FechaLlegada.Date <= fechaLlegada.Value.Date);
+                viajes = viajes.Where(v => v.FechaLlegada.Date <= fechaLlegada.Value.Date).ToList();
             }
 
             return viajes;

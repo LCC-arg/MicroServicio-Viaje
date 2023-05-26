@@ -1,4 +1,5 @@
 ﻿using Application.Exceptions;
+using Application.Interfaces.IApi;
 using Application.Interfaces.ICommands;
 using Application.Interfaces.IQuerys;
 using Application.Interfaces.IServices;
@@ -17,11 +18,13 @@ namespace Application.UseCase
     {
         private readonly IViajeCommand _viajeCommand;
         private readonly IViajeQuery _viajeQuery;
+        private readonly ITransporteApi _transporteApi;
 
-        public ViajeServices(IViajeCommand viajeCommand, IViajeQuery viajeQuery)
+        public ViajeServices(IViajeCommand viajeCommand, IViajeQuery viajeQuery, ITransporteApi transporteApi)
         {
             _viajeCommand = viajeCommand;
             _viajeQuery = viajeQuery;
+            _transporteApi = transporteApi;
         }
 
         public ViajeResponse AddViaje(Viaje viaje)
@@ -31,7 +34,7 @@ namespace Application.UseCase
 
         public ViajeResponse CreateViaje(ViajeRequest viajeRequest)
         {
-            DateTime horarioSalidaConvert;
+
 
             if (!int.TryParse(viajeRequest.ciudadOrigen.ToString(), out _))
             {
@@ -62,13 +65,31 @@ namespace Application.UseCase
                 throw new BadRequestException("Formato de fecha de llegada invalido");
             }
 
-            var result = _viajeCommand.Create(viajeRequest);
+            Viaje newViaje = new Viaje
+            {
+                CiudadOrigen = viajeRequest.ciudadOrigen,
+                CiudadDestino = viajeRequest.ciudadDestino,
+                TransporteId = viajeRequest.transporteId,
+                Duracion = viajeRequest.duracion,
+                HorarioSalida = viajeRequest.horarioSalida,
+                HorarioLlegada = viajeRequest.horarioLlegada,
+                FechaSalida = viajeRequest.fechaSalida,
+                FechaLlegada = viajeRequest.fechaLlegada,
+                TipoViaje = viajeRequest.tipoViaje
+            };
+
+            TransporteResponse response = Response(newViaje.TransporteId);
+            var result =  _viajeCommand.Insert(newViaje);
+
+
+
+
             ViajeResponse viajeResponse = new ViajeResponse
             {
                 id = result.ViajeId,
                 ciudadOrigen = result.CiudadOrigen,
                 ciudadDestino = result.CiudadDestino,
-                transporteId = result.TransporteId,
+                transporte = response,
                 duracion = result.Duracion,
                 horarioSalida = result.HorarioSalida,
                 horarioLlegada = result.HorarioLlegada,
@@ -97,12 +118,14 @@ namespace Application.UseCase
                 throw new HasConflictException("No se puede eliminar el viaje ya que posee pasajeros");
             }
 
+            TransporteResponse response = Response(viaje.TransporteId);
+
             return new ViajeResponse
             {
                 id = viaje.ViajeId,
                 ciudadOrigen = viaje.CiudadOrigen,
                 ciudadDestino = viaje.CiudadDestino,
-                transporteId = viaje.TransporteId,
+                transporte = response,
                 duracion = viaje.Duracion,
                 horarioSalida = viaje.HorarioSalida,
                 horarioLlegada = viaje.HorarioLlegada,
@@ -126,6 +149,7 @@ namespace Application.UseCase
             }
 
             var viaje= _viajeQuery.GetById(viajeId);
+            TransporteResponse response = Response(viaje.TransporteId);
             if (viaje != null)
             {
                 ViajeResponse viajeResponse = new ViajeResponse
@@ -133,7 +157,7 @@ namespace Application.UseCase
                     id = viaje.ViajeId,
                     ciudadOrigen = viaje.CiudadOrigen,
                     ciudadDestino = viaje.CiudadDestino,
-                    transporteId = viaje.TransporteId,
+                    transporte = response,
                     duracion = viaje.Duracion,
                     horarioSalida = viaje.HorarioSalida,
                     horarioLlegada = viaje.HorarioLlegada,
@@ -189,13 +213,13 @@ namespace Application.UseCase
             { 
                 return null; 
             }
-
+            TransporteResponse response = Response(viaje.TransporteId);
             return new ViajeResponse
             {
                 id = viaje.ViajeId,
                 ciudadOrigen = viaje.CiudadOrigen,
                 ciudadDestino = viaje.CiudadDestino,
-                transporteId = viaje.TransporteId,
+                transporte = response,
                 duracion = viaje.Duracion,
                 horarioSalida = viaje.HorarioSalida,
                 horarioLlegada = viaje.HorarioLlegada,
@@ -222,12 +246,13 @@ namespace Application.UseCase
             {
                 foreach(Viaje viaje in viajes) 
                 {
+                    TransporteResponse response = Response(viaje.TransporteId);
                     ViajeResponse viajeResponse = new ViajeResponse
                     {
                         id = viaje.ViajeId,
                         ciudadOrigen = viaje.CiudadOrigen,
                         ciudadDestino = viaje.CiudadDestino,
-                        transporteId = viaje.TransporteId,
+                        transporte = response,
                         duracion = viaje.Duracion,
                         horarioSalida = viaje.HorarioSalida,
                         horarioLlegada = viaje.HorarioLlegada,
@@ -239,6 +264,11 @@ namespace Application.UseCase
                 }
             }
             return viajeResponses;
+        }
+        private TransporteResponse Response(int transporteId) 
+        {
+            TransporteResponse response = _transporteApi.GetTransporteById(transporteId);
+            return response;
         }
     }
 }

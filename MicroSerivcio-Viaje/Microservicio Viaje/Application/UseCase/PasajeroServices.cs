@@ -1,10 +1,12 @@
 ﻿using Application.Exceptions;
+using Application.Interfaces.IApi;
 using Application.Interfaces.ICommands;
 using Application.Interfaces.IQuerys;
 using Application.Interfaces.IServices;
 using Application.Request;
 using Application.Response;
 using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +20,14 @@ namespace Application.UseCase
         private readonly IPasajeroCommand _pasajeroCommand;
         private readonly IPasajeroQuery _pasajeroQuery;
         private readonly IViajeQuery _viajeQuery;
+        private readonly ITransporteApi _transporteApi;
 
-        public PasajeroServices(IPasajeroCommand pasajeroCommand, IPasajeroQuery pasajeroQuery, IViajeQuery viajeQuery)
+        public PasajeroServices(IPasajeroCommand pasajeroCommand, IPasajeroQuery pasajeroQuery, IViajeQuery viajeQuery, ITransporteApi transporteApi)
         {
             _pasajeroCommand = pasajeroCommand;
             _pasajeroQuery = pasajeroQuery;
             _viajeQuery = viajeQuery;
+            _transporteApi = transporteApi;
         }
 
         public PasajeroResponse AddPasajero(Pasajero pasajero)
@@ -41,7 +45,9 @@ namespace Application.UseCase
             {
                 throw new BadRequestException("Formato de numero de emergencia incorrecto");
             }
+
             IEnumerable<Pasajero> pasajeros = _pasajeroQuery.GetAll();
+
             foreach(Pasajero pasajero in pasajeros)
             {
                 if(pasajero.ViajeId == pasajeroRequest.viajeId && pasajero.Dni == pasajeroRequest.dni)
@@ -49,7 +55,31 @@ namespace Application.UseCase
                     throw new HasConflictException("Ya existe otro pasajero con su mismo dni en este viaje");
                 }
             }
-            var result = _pasajeroCommand.Create(pasajeroRequest);
+
+            Viaje viaje = _viajeQuery.GetById(pasajeroRequest.viajeId);
+
+            if (viaje == null)
+            {
+                throw new HasConflictException("El viaje no existe en la base de datos");
+            }
+
+            Pasajero newPasajero = new Pasajero
+            {
+                Nombre = pasajeroRequest.nombre,
+                Apellido = pasajeroRequest.apellido,
+                Dni = pasajeroRequest.dni,
+                FechaNacimiento = pasajeroRequest.fechaNacimiento,
+                Genero = pasajeroRequest.genero,
+                NumContactoEmergencia = pasajeroRequest.numContactoEmergencia,
+                ViajeId = pasajeroRequest.viajeId,
+                Nacionalidad = pasajeroRequest.nacionalidad,
+                Viaje = viaje
+            };
+
+            var response = Response(newPasajero.ViajeId);
+            var result = _pasajeroCommand.Insert(newPasajero);
+            
+
             PasajeroResponse pasajeroResponse = new PasajeroResponse
             {
                 id = result.PasajeroId,
@@ -64,7 +94,7 @@ namespace Application.UseCase
                     id = result.ViajeId,
                     ciudadOrigen = result.Viaje.CiudadOrigen,
                     ciudadDestino = result.Viaje.CiudadDestino,
-                    transporteId = result.Viaje.TransporteId,
+                    transporte = response,
                     duracion = result.Viaje.Duracion,
                     horarioSalida = result.Viaje.HorarioSalida,
                     horarioLlegada = result.Viaje.HorarioLlegada,
@@ -90,7 +120,7 @@ namespace Application.UseCase
             {
                 throw new BadRequestException("No existe pasajero con ese Id");
             }
-
+            var response = Response(pasajero.ViajeId);
             return new PasajeroResponse
             {
                 id = pasajero.PasajeroId,
@@ -105,7 +135,7 @@ namespace Application.UseCase
                     id = pasajero.ViajeId,
                     ciudadOrigen = pasajero.Viaje.CiudadOrigen,
                     ciudadDestino = pasajero.Viaje.CiudadDestino,
-                    transporteId = pasajero.Viaje.TransporteId,
+                    transporte = response,
                     duracion = pasajero.Viaje.Duracion,
                     horarioSalida = pasajero.Viaje.HorarioSalida,
                     horarioLlegada = pasajero.Viaje.HorarioLlegada,
@@ -133,6 +163,7 @@ namespace Application.UseCase
             var viaje = _viajeQuery.GetById(pasajero.ViajeId);
             if(pasajero != null) 
             {
+                var response = Response(pasajero.ViajeId);
                 PasajeroResponse pasajeroResponse = new PasajeroResponse
                 {
                     id = pasajero.PasajeroId,
@@ -147,7 +178,7 @@ namespace Application.UseCase
                         id = viaje.ViajeId,
                         ciudadOrigen = viaje.CiudadOrigen,
                         ciudadDestino = viaje.CiudadDestino,
-                        transporteId = viaje.TransporteId,
+                        transporte = response,
                         duracion = viaje.Duracion,
                         horarioSalida = viaje.HorarioSalida,
                         horarioLlegada = viaje.HorarioLlegada,
@@ -179,6 +210,7 @@ namespace Application.UseCase
             {
                 foreach(Pasajero pasajero in pasajeros)
                 {
+                    var response = Response(pasajero.ViajeId);
                     PasajeroResponse pasajeroResponse = new PasajeroResponse
                     {
                         id = pasajero.PasajeroId,
@@ -193,7 +225,7 @@ namespace Application.UseCase
                             id = pasajero.Viaje.ViajeId,
                             ciudadOrigen = pasajero.Viaje.CiudadOrigen,
                             ciudadDestino = pasajero.Viaje.CiudadDestino,
-                            transporteId = pasajero.Viaje.TransporteId,
+                            transporte = response,
                             duracion = pasajero.Viaje.Duracion,
                             horarioSalida = pasajero.Viaje.HorarioSalida,
                             horarioLlegada = pasajero.Viaje.HorarioLlegada,
@@ -214,6 +246,7 @@ namespace Application.UseCase
             _pasajeroCommand.Update(pasajeroId, pasajeroRequest);
             Pasajero pasajero = _pasajeroQuery.GetById(pasajeroId);
             Viaje viaje = _viajeQuery.GetById(pasajeroRequest.viajeId);
+            var response = Response(pasajero.ViajeId);
             return new PasajeroResponse
             {
                 id = pasajero.PasajeroId,
@@ -228,7 +261,7 @@ namespace Application.UseCase
                     id = viaje.ViajeId,
                     ciudadOrigen = viaje.CiudadOrigen,
                     ciudadDestino = viaje.CiudadDestino,
-                    transporteId = viaje.TransporteId,
+                    transporte = response,
                     duracion = viaje.Duracion,
                     horarioSalida = viaje.HorarioSalida,
                     horarioLlegada = viaje.HorarioLlegada,
@@ -238,12 +271,17 @@ namespace Application.UseCase
                 }
             };
 
-
         }
 
+        private TransporteResponse Response(int transporteId)
+        {
+            var response = _transporteApi.GetTransporteById(transporteId);
+            return response;
+        }
         public bool ValidarInt(int dato)
         {
            return int.TryParse(dato.ToString(), out _);
         }
+
     }
 }

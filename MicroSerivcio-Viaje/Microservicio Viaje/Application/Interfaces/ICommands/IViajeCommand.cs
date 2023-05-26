@@ -10,8 +10,7 @@ namespace Application.Interfaces.ICommands
 {
     public interface IViajeCommand
     {
-        Viaje Create(ViajeRequest viajeRequest);
-        void Insert(Viaje viaje);
+        Viaje Insert(Viaje viaje);
         Viaje Update(int viajeId, ViajeRequest viajeRequest);
         Viaje Delete(int viajeId);
     }

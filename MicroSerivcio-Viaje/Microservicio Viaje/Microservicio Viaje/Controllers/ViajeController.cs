@@ -28,7 +28,7 @@ namespace Microservicio_Viaje.Controllers
         {
             try
             {
-                var result = _viajeServices.CreateViaje(request);
+                ViajeResponse result = _viajeServices.CreateViaje(request);
 
                 return new JsonResult(result) { StatusCode = StatusCodes.Status201Created };
             }

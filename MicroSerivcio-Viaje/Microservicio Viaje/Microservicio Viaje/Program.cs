@@ -1,7 +1,9 @@
+using Application.Interfaces.IApi;
 using Application.Interfaces.ICommands;
 using Application.Interfaces.IQuerys;
 using Application.Interfaces.IServices;
 using Application.UseCase;
+using Infraestructure.Client;
 using Infraestructure.Commands;
 using Infraestructure.Persistence;
 using Infraestructure.Querys;
@@ -26,6 +28,7 @@ builder.Services.AddScoped<IPasajeroQuery, PasajeroQuery>();
 builder.Services.AddScoped<IViajeServices, ViajeServices>();
 builder.Services.AddScoped<IViajeCommand, ViajeCommand>();
 builder.Services.AddScoped<IViajeQuery, ViajeQuery>();
+builder.Services.AddScoped<ITransporteApi, TransporteApi>();
 
 
 

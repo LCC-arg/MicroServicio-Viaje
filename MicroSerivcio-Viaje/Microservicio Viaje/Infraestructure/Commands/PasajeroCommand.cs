@@ -2,6 +2,7 @@
 using Application.Interfaces.ICommands;
 using Application.Request;
 using Domain.Entities;
+using Infraestructure.Migrations;
 using Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -66,9 +67,14 @@ namespace Infraestructure.Commands
             return pasajero;
         }
 
-        public void Insert(Pasajero pasajero)
+        public Pasajero Insert(Pasajero pasajero)
         {
-            throw new NotImplementedException();
+            _context.Pasajero.Add(pasajero);
+            var viaje = _context.Viaje.Find(pasajero.ViajeId);
+            viaje.Pasajeros.Add(pasajero);
+
+            _context.SaveChanges();
+            return pasajero;
         }
 
         public Pasajero Update(int pasajeroId, PasajeroRequest pasajeroRequest)

@@ -11,8 +11,7 @@ namespace Application.Interfaces.ICommands
 {
     public interface IPasajeroCommand
     {
-        Pasajero Create(PasajeroRequest pasajeroRequest);
-        void Insert(Pasajero pasajero);
+        Pasajero Insert(Pasajero pasajero);
         Pasajero Update(int pasajeroId, PasajeroRequest pasajeroRequest);
         Pasajero Delete(int pasajeroId);
     }
