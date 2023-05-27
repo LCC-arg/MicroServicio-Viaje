@@ -76,6 +76,11 @@ namespace Microservicio_Viaje.Controllers
         {
             try
             {
+                if (!int.TryParse(id.ToString(), out _))
+                {
+                    throw new BadRequestException("El formato de id ingresado es invalido");
+                }
+
                 var result = _pasajeroService.DeletePasajero(id);
                 return Ok(result);
             }
@@ -90,7 +95,13 @@ namespace Microservicio_Viaje.Controllers
         [ProducesResponseType(typeof(BadRequest), StatusCodes.Status404NotFound)]
         public IActionResult UpdatePasajero(int id, PasajeroRequest request)
         {
+            if (!int.TryParse(id.ToString(), out _))
+            {
+                throw new BadRequestException("El formato de id ingresado es invalido");
+            }
+
             var result = _pasajeroService.UpdatePasajero(id, request);
+
             if (result == null)
             {
                 return NotFound(new { message = "No se encontro el pasajero" });

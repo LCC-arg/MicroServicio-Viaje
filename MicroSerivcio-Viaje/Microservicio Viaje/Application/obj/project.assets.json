@@ -7950,11 +7950,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Nueva carpeta\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Nueva carpeta\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\Peceta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Nueva carpeta\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\obj\\",
+      "outputPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7975,8 +7975,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Peceta\\OneDrive\\Desktop\\Nueva carpeta\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Nueva carpeta\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj"
+            "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj"
             }
           }
         }

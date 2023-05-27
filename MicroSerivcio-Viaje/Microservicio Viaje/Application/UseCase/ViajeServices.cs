@@ -5,6 +5,7 @@ using Application.Interfaces.IQuerys;
 using Application.Interfaces.IServices;
 using Application.Request;
 using Application.Response;
+using Application.Response.ViajeCiudad;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -251,25 +252,33 @@ namespace Application.UseCase
             { 
                 return null; 
             }
-            dynamic response = Response(viaje.TransporteId);
+            dynamic responseTransporte = Response(viaje.TransporteId);
+            dynamic responseOrigen = Response(viaje.CiudadOrigen);
+            dynamic responseDestino = Response(viaje.CiudadDestino);
+
+
             return new ViajeResponse
             {
                 id = viaje.ViajeId,
-                ciudadOrigen = viaje.CiudadOrigen,
+                ciudadOrigen = new ViajeCiudadResponse
+                {
+                    Id = responseOrigen.id,
+                    ViajeId
+                },
                 ciudadDestino = viaje.CiudadDestino,
                 transporte = new TransporteResponse
                 {
-                    id = response.id,
+                    id = responseTransporte.id,
                     tipoTransporte = new TipoTransporteResponse
                     {
-                        id = response.tipoTransporteResponse.id,
-                        descripcion = response.tipoTransporteResponse.descripcion
+                        id = responseTransporte.tipoTransporteResponse.id,
+                        descripcion = responseTransporte.tipoTransporteResponse.descripcion
                     },
                     companiaTransporte = new CompaniaTransporteResponse
                     {
-                        id = response.companiaTransporteResponse.id,
-                        razonSocial = response.companiaTransporteResponse.razonSocial,
-                        cuit = response.companiaTransporteResponse.cuit
+                        id = responseTransporte.companiaTransporteResponse.id,
+                        razonSocial = responseTransporte.companiaTransporteResponse.razonSocial,
+                        cuit = responseTransporte.companiaTransporteResponse.cuit
                     }
                 },
                 duracion = viaje.Duracion,

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.Response.ViajeCiudad;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,8 @@ namespace Application.Response
     public class ViajeResponse
     {
         public int id { get; set; }
-        public int ciudadOrigen { get; set; }
-        public int ciudadDestino { get; set; }
+        public ViajeCiudadResponse ciudadOrigen { get; set; }
+        public ViajeCiudadResponse ciudadDestino { get; set; }
         public TransporteResponse transporte { get;set; }
         public string duracion { get; set; }
         public DateTime horarioSalida { get; set; }

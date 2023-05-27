@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IUWs/YeGdsKObaGDs1dFZZ2JbKPPfIGT7QbIyWdQjHLCubp6f+iWEvktcTOUbwEqCaj/AtWPbhu08pzW3wCnug==",
+  "dgSpecHash": "6zpS0Jx7Ei7DSPf2A+BZi6qSpQe0tdNBsTc9H/YUplYCuO3df9KPVvIBBNFkX+aPBtqdT1jQ1IfTGliUtVYZcQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Nueva carpeta\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Peceta\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Peceta\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
