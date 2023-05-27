@@ -116,26 +116,41 @@ namespace Application.UseCase
             {
                 throw new BadRequestException("Formato del Id de viaje incorrecto");
             }
+            var viaje = _viajeQuery.GetById(viajeId);
+            if (viaje.Pasajeros.Count != 0)
+            {
+                throw new HasConflictException("No se puede eliminar el viaje ya que posee pasajeros");
+            }
 
-            var viaje = _viajeCommand.Delete(viajeId);
+            viaje = _viajeCommand.Delete(viajeId);
 
             if (viaje == null)
             {
                 throw new BadRequestException("No existe un viaje con ese Id");
             }
-            if(viaje.Pasajeros.Count != 0)
-            {
-                throw new HasConflictException("No se puede eliminar el viaje ya que posee pasajeros");
-            }
 
-            TransporteResponse response = Response(viaje.TransporteId);
+            dynamic response = Response(viaje.TransporteId);
 
             return new ViajeResponse
             {
                 id = viaje.ViajeId,
                 ciudadOrigen = viaje.CiudadOrigen,
                 ciudadDestino = viaje.CiudadDestino,
-                transporte = response,
+                transporte = new TransporteResponse
+                {
+                    id = response.id,
+                    tipoTransporte = new TipoTransporteResponse
+                    {
+                        id = response.tipoTransporteResponse.id,
+                        descripcion = response.tipoTransporteResponse.descripcion
+                    },
+                    companiaTransporte = new CompaniaTransporteResponse
+                    {
+                        id = response.companiaTransporteResponse.id,
+                        razonSocial = response.companiaTransporteResponse.razonSocial,
+                        cuit = response.companiaTransporteResponse.cuit
+                    }
+                },
                 duracion = viaje.Duracion,
                 horarioSalida = viaje.HorarioSalida,
                 horarioLlegada = viaje.HorarioLlegada,
@@ -153,21 +168,35 @@ namespace Application.UseCase
 
         public ViajeResponse GetViajeById(int viajeId)
         {
-            if (int.TryParse(viajeId.ToString(), out _))
+            if (!int.TryParse(viajeId.ToString(), out _))
             {
                 throw new BadRequestException("Formato de id del viaje invalido");
             }
 
             var viaje= _viajeQuery.GetById(viajeId);
-            TransporteResponse response = Response(viaje.TransporteId);
+            dynamic response = Response(viaje.TransporteId);
             if (viaje != null)
             {
-                ViajeResponse viajeResponse = new ViajeResponse
+                return new ViajeResponse
                 {
                     id = viaje.ViajeId,
                     ciudadOrigen = viaje.CiudadOrigen,
                     ciudadDestino = viaje.CiudadDestino,
-                    transporte = response,
+                    transporte = new TransporteResponse
+                    {
+                        id = response.id,
+                        tipoTransporte = new TipoTransporteResponse
+                        {
+                            id = response.tipoTransporteResponse.id,
+                            descripcion = response.tipoTransporteResponse.descripcion
+                        },
+                        companiaTransporte = new CompaniaTransporteResponse
+                        {
+                            id = response.companiaTransporteResponse.id,
+                            razonSocial = response.companiaTransporteResponse.razonSocial,
+                            cuit = response.companiaTransporteResponse.cuit
+                        }
+                    },
                     duracion = viaje.Duracion,
                     horarioSalida = viaje.HorarioSalida,
                     horarioLlegada = viaje.HorarioLlegada,
@@ -175,7 +204,6 @@ namespace Application.UseCase
                     fechaLlegada = viaje.FechaLlegada,
                     tipoViaje = viaje.TipoViaje
                 };
-                return viajeResponse;
             }
             throw new NotFoundException("No existe viaje con ese Id");
         }
@@ -231,17 +259,17 @@ namespace Application.UseCase
                 ciudadDestino = viaje.CiudadDestino,
                 transporte = new TransporteResponse
                 {
-                    id = response.transporteId,
-                    tipoTransporteResponse = new TipoTransporteResponse
+                    id = response.id,
+                    tipoTransporte = new TipoTransporteResponse
                     {
-                        id = response.transporte.TipoTransporteId,
-                        descripcion = response.transporte.TipoTransporte.Descripcion
+                        id = response.tipoTransporteResponse.id,
+                        descripcion = response.tipoTransporteResponse.descripcion
                     },
-                    companiaTransporteResponse = new CompaniaTransporteResponse
+                    companiaTransporte = new CompaniaTransporteResponse
                     {
-                        id = response.transporte.CompaniaTransporteId,
-                        razonSocial = response.transporte.CompaniaTransporte.RazonSocial,
-                        cuit = response.transporte.CompaniaTransporte.Cuit
+                        id = response.companiaTransporteResponse.id,
+                        razonSocial = response.companiaTransporteResponse.razonSocial,
+                        cuit = response.companiaTransporteResponse.cuit
                     }
                 },
                 duracion = viaje.Duracion,
@@ -270,14 +298,28 @@ namespace Application.UseCase
             {
                 foreach(Viaje viaje in viajes) 
                 {
-                    TransporteResponse response = Response(viaje.TransporteId);
+                    dynamic response = Response(viaje.TransporteId);
 
                     ViajeResponse viajeResponse = new ViajeResponse
                     {
                         id = viaje.ViajeId,
                         ciudadOrigen = viaje.CiudadOrigen,
                         ciudadDestino = viaje.CiudadDestino,
-                        transporte = response,
+                        transporte = new TransporteResponse
+                        {
+                            id = response.id,
+                            tipoTransporte = new TipoTransporteResponse
+                            {
+                                id = response.tipoTransporteResponse.id,
+                                descripcion = response.tipoTransporteResponse.descripcion
+                            },
+                            companiaTransporte = new CompaniaTransporteResponse
+                            {
+                                id = response.companiaTransporteResponse.id,
+                                razonSocial = response.companiaTransporteResponse.razonSocial,
+                                cuit = response.companiaTransporteResponse.cuit
+                            }
+                        },
                         duracion = viaje.Duracion,
                         horarioSalida = viaje.HorarioSalida,
                         horarioLlegada = viaje.HorarioLlegada,

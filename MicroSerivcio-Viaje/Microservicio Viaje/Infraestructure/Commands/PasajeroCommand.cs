@@ -2,7 +2,6 @@
 using Application.Interfaces.ICommands;
 using Application.Request;
 using Domain.Entities;
-using Infraestructure.Migrations;
 using Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;

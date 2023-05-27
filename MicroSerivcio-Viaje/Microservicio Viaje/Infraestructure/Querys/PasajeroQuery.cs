@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.IQuerys;
+﻿using Application.Exceptions;
+using Application.Interfaces.IQuerys;
 using Domain.Entities;
 using Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -25,8 +26,13 @@ namespace Infraestructure.Querys
 
         public Pasajero GetById(int pasajeroId)
         {
-            return _context.Pasajero
+            var result = _context.Pasajero
                 .FirstOrDefault(p => p.PasajeroId == pasajeroId);
+            if(result == null)
+            {
+                throw new NotFoundException("No existe pasajero con tal Id en la base de datos");
+            }
+            return result;
         }
         public IEnumerable<Pasajero> GetPasajeros(string? nombre, string? apellido, DateTime? fechaNacimiento, int? dni, string? nacionalidad, string? genero)
         {
