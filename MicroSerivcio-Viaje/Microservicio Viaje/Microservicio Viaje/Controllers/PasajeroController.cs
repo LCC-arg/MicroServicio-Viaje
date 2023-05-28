@@ -91,8 +91,8 @@ namespace Microservicio_Viaje.Controllers
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(PasajeroResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(BadRequest), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(PasajeroResponse), 200)]
+        [ProducesResponseType(typeof(BadRequest), 404)]
         public IActionResult UpdatePasajero(int id, PasajeroRequest request)
         {
             if (!int.TryParse(id.ToString(), out _))
@@ -106,7 +106,7 @@ namespace Microservicio_Viaje.Controllers
             {
                 return NotFound(new { message = "No se encontro el pasajero" });
             }
-            return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
+            return new JsonResult(result) { StatusCode = 200 };
         }
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<PasajeroResponse>), 200)]
