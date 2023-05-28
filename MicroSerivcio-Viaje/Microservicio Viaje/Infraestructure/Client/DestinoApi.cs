@@ -18,17 +18,17 @@ namespace Infraestructure.Client
         public DestinoApi()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:7018/api/");
+            _httpClient.BaseAddress = new Uri("https://localhost:7018");
         }
 
         public dynamic GetDestinoById(int destinoId)
         {
-            HttpResponseMessage response = _httpClient.GetAsync($"/Destinos/ViajeCiudad/{destinoId}").Result;
+            HttpResponseMessage response = _httpClient.GetAsync($"/api/Destinos/ViajeCiudad/{destinoId}").Result;
 
             if (response.IsSuccessStatusCode)
             {
-                dynamic transporte = response.Content.ReadAsAsync<dynamic>().Result;
-                return transporte;
+                dynamic destino = response.Content.ReadAsAsync<dynamic>().Result;
+                return destino;
             }
             else
             {

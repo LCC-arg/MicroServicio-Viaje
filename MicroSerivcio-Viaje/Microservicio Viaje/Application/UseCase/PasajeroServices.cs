@@ -108,15 +108,15 @@ namespace Application.UseCase
                         Ciudad = new CiudadResponse
                         {
                             Id = responseOrigen.ciudad.id,
-                            Nombre = responseOrigen.ciudad.Nombre,
+                            Nombre = responseOrigen.ciudad.nombre,
                             Provincia = new ProvinciaResponse
                             {
                                 Id = responseOrigen.ciudad.provincia.id,
-                                Nombre = responseOrigen.ciudad.provincia.Nombre,
+                                Nombre = responseOrigen.ciudad.provincia.nombre,
                                 Pais = new PaisResponse
                                 {
                                     Id = responseOrigen.ciudad.provincia.pais.id,
-                                    Nombre = responseOrigen.ciudad.provincia.pais.Nombre
+                                    Nombre = responseOrigen.ciudad.provincia.pais.nombre
                                 }
                             }
 
@@ -129,11 +129,11 @@ namespace Application.UseCase
                         Ciudad = new CiudadResponse
                         {
                             Id = responseDestino.ciudad.id,
-                            Nombre = responseDestino.ciudad.Nombre,
+                            Nombre = responseDestino.ciudad.nombre,
                             Provincia = new ProvinciaResponse
                             {
                                 Id = responseDestino.ciudad.provincia.id,
-                                Nombre = responseDestino.ciudad.provincia.Nombre,
+                                Nombre = responseDestino.ciudad.provincia.nombre,
                                 Pais = new PaisResponse
                                 {
                                     Id = responseDestino.ciudad.provincia.pais.id,
@@ -205,15 +205,15 @@ namespace Application.UseCase
                         Ciudad = new CiudadResponse
                         {
                             Id = responseOrigen.ciudad.id,
-                            Nombre = responseOrigen.ciudad.Nombre,
+                            Nombre = responseOrigen.ciudad.nombre,
                             Provincia = new ProvinciaResponse
                             {
                                 Id = responseOrigen.ciudad.provincia.id,
-                                Nombre = responseOrigen.ciudad.provincia.Nombre,
+                                Nombre = responseOrigen.ciudad.provincia.nombre,
                                 Pais = new PaisResponse
                                 {
                                     Id = responseOrigen.ciudad.provincia.pais.id,
-                                    Nombre = responseOrigen.ciudad.provincia.pais.Nombre
+                                    Nombre = responseOrigen.ciudad.provincia.pais.nombre
                                 }
                             }
 
@@ -226,15 +226,15 @@ namespace Application.UseCase
                         Ciudad = new CiudadResponse
                         {
                             Id = responseDestino.ciudad.id,
-                            Nombre = responseDestino.ciudad.Nombre,
+                            Nombre = responseDestino.ciudad.nombre,
                             Provincia = new ProvinciaResponse
                             {
                                 Id = responseDestino.ciudad.provincia.id,
-                                Nombre = responseDestino.ciudad.provincia.Nombre,
+                                Nombre = responseDestino.ciudad.provincia.nombre,
                                 Pais = new PaisResponse
                                 {
                                     Id = responseDestino.ciudad.provincia.pais.id,
-                                    Nombre = responseDestino.ciudad.provincia.pais.Nombre
+                                    Nombre = responseDestino.ciudad.provincia.pais.nombre
                                 }
                             }
 
@@ -304,15 +304,15 @@ namespace Application.UseCase
                             Ciudad = new CiudadResponse
                             {
                                 Id = responseOrigen.ciudad.id,
-                                Nombre = responseOrigen.ciudad.Nombre,
+                                Nombre = responseOrigen.ciudad.nombre,
                                 Provincia = new ProvinciaResponse
                                 {
                                     Id = responseOrigen.ciudad.provincia.id,
-                                    Nombre = responseOrigen.ciudad.provincia.Nombre,
+                                    Nombre = responseOrigen.ciudad.provincia.nombre,
                                     Pais = new PaisResponse
                                     {
                                         Id = responseOrigen.ciudad.provincia.pais.id,
-                                        Nombre = responseOrigen.ciudad.provincia.pais.Nombre
+                                        Nombre = responseOrigen.ciudad.provincia.pais.nombre
                                     }
                                 }
 
@@ -325,15 +325,15 @@ namespace Application.UseCase
                             Ciudad = new CiudadResponse
                             {
                                 Id = responseDestino.ciudad.id,
-                                Nombre = responseDestino.ciudad.Nombre,
+                                Nombre = responseDestino.ciudad.nombre,
                                 Provincia = new ProvinciaResponse
                                 {
                                     Id = responseDestino.ciudad.provincia.id,
-                                    Nombre = responseDestino.ciudad.provincia.Nombre,
+                                    Nombre = responseDestino.ciudad.provincia.nombre,
                                     Pais = new PaisResponse
                                     {
                                         Id = responseDestino.ciudad.provincia.pais.id,
-                                        Nombre = responseDestino.ciudad.provincia.pais.Nombre
+                                        Nombre = responseDestino.ciudad.provincia.pais.nombre
                                     }
                                 }
 
@@ -407,15 +407,15 @@ namespace Application.UseCase
                                 Ciudad = new CiudadResponse
                                 {
                                     Id = responseOrigen.ciudad.id,
-                                    Nombre = responseOrigen.ciudad.Nombre,
+                                    Nombre = responseOrigen.ciudad.nombre,
                                     Provincia = new ProvinciaResponse
                                     {
                                         Id = responseOrigen.ciudad.provincia.id,
-                                        Nombre = responseOrigen.ciudad.provincia.Nombre,
+                                        Nombre = responseOrigen.ciudad.provincia.nombre,
                                         Pais = new PaisResponse
                                         {
                                             Id = responseOrigen.ciudad.provincia.pais.id,
-                                            Nombre = responseOrigen.ciudad.provincia.pais.Nombre
+                                            Nombre = responseOrigen.ciudad.provincia.pais.nombre
                                         }
                                     }
 
@@ -428,15 +428,15 @@ namespace Application.UseCase
                                 Ciudad = new CiudadResponse
                                 {
                                     Id = responseDestino.ciudad.id,
-                                    Nombre = responseDestino.ciudad.Nombre,
+                                    Nombre = responseDestino.ciudad.nombre,
                                     Provincia = new ProvinciaResponse
                                     {
                                         Id = responseDestino.ciudad.provincia.id,
-                                        Nombre = responseDestino.ciudad.provincia.Nombre,
+                                        Nombre = responseDestino.ciudad.provincia.nombre,
                                         Pais = new PaisResponse
                                         {
                                             Id = responseDestino.ciudad.provincia.pais.id,
-                                            Nombre = responseDestino.ciudad.provincia.pais.Nombre
+                                            Nombre = responseDestino.ciudad.provincia.pais.nombre
                                         }
                                     }
 
@@ -499,15 +499,15 @@ namespace Application.UseCase
                         Ciudad = new CiudadResponse
                         {
                             Id = responseOrigen.ciudad.id,
-                            Nombre = responseOrigen.ciudad.Nombre,
+                            Nombre = responseOrigen.ciudad.nombre,
                             Provincia = new ProvinciaResponse
                             {
                                 Id = responseOrigen.ciudad.provincia.id,
-                                Nombre = responseOrigen.ciudad.provincia.Nombre,
+                                Nombre = responseOrigen.ciudad.provincia.nombre,
                                 Pais = new PaisResponse
                                 {
                                     Id = responseOrigen.ciudad.provincia.pais.id,
-                                    Nombre = responseOrigen.ciudad.provincia.pais.Nombre
+                                    Nombre = responseOrigen.ciudad.provincia.pais.nombre
                                 }
                             }
 
@@ -520,15 +520,15 @@ namespace Application.UseCase
                         Ciudad = new CiudadResponse
                         {
                             Id = responseDestino.ciudad.id,
-                            Nombre = responseDestino.ciudad.Nombre,
+                            Nombre = responseDestino.ciudad.nombre,
                             Provincia = new ProvinciaResponse
                             {
                                 Id = responseDestino.ciudad.provincia.id,
-                                Nombre = responseDestino.ciudad.provincia.Nombre,
+                                Nombre = responseDestino.ciudad.provincia.nombre,
                                 Pais = new PaisResponse
                                 {
                                     Id = responseDestino.ciudad.provincia.pais.id,
-                                    Nombre = responseDestino.ciudad.provincia.pais.Nombre
+                                    Nombre = responseDestino.ciudad.provincia.pais.nombre
                                 }
                             }
 

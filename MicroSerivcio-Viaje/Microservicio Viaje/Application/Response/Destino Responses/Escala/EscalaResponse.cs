@@ -8,7 +8,7 @@ namespace Application.Response.Escala
         public string NombreParada { get; set; }
         public DateTime HoraLlegada { get; set; }
         public DateTime HoraSalida { get; set; }
-        public Guid ViajeId { get; set; }
+        public int ViajeId { get; set; }
         public CiudadResponse Ciudad { get; set; }
     }
 }
