@@ -124,3 +124,17 @@ C:\Users\Peceta\OneDrive\Desktop\Uni Primer Cuatrimestre\TP Grupal\MicroServicio
 C:\Users\Peceta\OneDrive\Desktop\Uni Primer Cuatrimestre\TP Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\Domain.pdb
 C:\Users\Peceta\OneDrive\Desktop\Uni Primer Cuatrimestre\TP Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\Domain.genruntimeconfig.cache
 C:\Users\Peceta\OneDrive\Desktop\Uni Primer Cuatrimestre\TP Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\ref\Domain.dll
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\bin\Debug\net6.0\Domain.deps.json
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\bin\Debug\net6.0\Domain.runtimeconfig.json
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\bin\Debug\net6.0\Domain.dll
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\bin\Debug\net6.0\Domain.pdb
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\Domain.dll
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\refint\Domain.dll
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\Domain.pdb
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\Domain.genruntimeconfig.cache
+C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Domain\obj\Debug\net6.0\ref\Domain.dll

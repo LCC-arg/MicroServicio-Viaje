@@ -78,9 +78,8 @@ namespace Application.UseCase
 
 
             var viaje =  _viajeCommand.Insert(newViaje);
-            dynamic responseDestino = ResponseCiudades(viaje.ViajeId, viajeRequest.ciudades[0]);
-
-
+            dynamic responseOrigen = ResponseCiudades(viaje.ViajeId, viajeRequest.ciudades[0]);
+            dynamic responseDestino = ResponseCiudades(viaje.ViajeId, viajeRequest.ciudades[1]);
 
             return new ViajeResponse
             {
