@@ -81,6 +81,18 @@ namespace Infraestructure.Commands
             var updatePasajero = _context.Pasajero
                 .FirstOrDefault(p => p.PasajeroId == pasajeroId);
 
+            if(updatePasajero == null)
+            {
+                throw new NotFoundException("No existe un pasajero con ese id");
+            }
+            var updateViajeId = _context.Viaje
+                .FirstOrDefault(x => x.ViajeId == pasajeroRequest.viajeId);
+
+            if(updateViajeId == null)
+            {
+                throw new NotFoundException("No existe un viaje con ese id");
+            }
+
             updatePasajero.Nombre = pasajeroRequest.nombre;
             updatePasajero.Apellido = pasajeroRequest.apellido;
             updatePasajero.Dni = pasajeroRequest.dni;

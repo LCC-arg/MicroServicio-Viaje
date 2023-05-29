@@ -117,24 +117,37 @@ namespace Microservicio_Viaje.Controllers
             {
                 return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 409 };
             }
+            catch(NotFoundException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 404 };
+            }
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(ViajeResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(BadRequest), StatusCodes.Status404NotFound)]
-        public IActionResult UpdatePasajero(int id, ViajeRequest request)
+        [ProducesResponseType(typeof(ViajeResponse), 200)]
+        [ProducesResponseType(typeof(BadRequest), 404)]
+        [ProducesResponseType(typeof(BadRequest), 400)]
+        public IActionResult UpdateViaje(int id, ViajeRequest request)
         {
-            if (!int.TryParse(id.ToString(), out _))
+            try
             {
-                throw new BadRequestException("El formato de id ingresado es invalido");
-            }
+                if (!int.TryParse(id.ToString(), out _))
+                {
+                    throw new BadRequestException("El formato de id ingresado es invalido");
+                }
 
-            var result = _viajeServices.UpdateViaje(id, request);
-            if (result == null)
-            {
-                return NotFound(new { message = "No se encontro el viaje" });
+                var result = _viajeServices.UpdateViaje(id, request);
+
+                return Ok(result);
             }
-            return new JsonResult(result) { StatusCode = StatusCodes.Status200OK };
+            catch (NotFoundException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 404 };
+            }
+            catch (BadRequestException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
+            }
         }
 
         [HttpGet]

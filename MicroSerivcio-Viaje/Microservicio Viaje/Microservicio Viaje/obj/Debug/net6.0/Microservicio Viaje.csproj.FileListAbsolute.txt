@@ -804,3 +804,6 @@ C:\Users\Peceta\OneDrive\Desktop\Uni Primer Cuatrimestre\TP Grupal\MicroServicio
 C:\Users\Peceta\OneDrive\Desktop\Uni Primer Cuatrimestre\TP Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.pdb
 C:\Users\Peceta\OneDrive\Desktop\Uni Primer Cuatrimestre\TP Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\Microservicio Viaje.genruntimeconfig.cache
 C:\Users\Peceta\OneDrive\Desktop\Uni Primer Cuatrimestre\TP Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\obj\Debug\net6.0\ref\Microservicio Viaje.dll
+C:\Users\gonzalo.corsiglia\Desktop\Proyecto Software\TP Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\gonzalo.corsiglia\Desktop\Proyecto Software\TP Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\gonzalo.corsiglia\Desktop\Proyecto Software\TP Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Microservicio Viaje\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

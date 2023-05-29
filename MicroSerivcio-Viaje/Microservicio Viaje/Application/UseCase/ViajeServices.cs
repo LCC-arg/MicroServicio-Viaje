@@ -123,11 +123,6 @@ namespace Application.UseCase
 
             viaje = _viajeCommand.Delete(viajeId);
 
-            if (viaje == null)
-            {
-                throw new BadRequestException("No existe un viaje con ese Id");
-            }
-
             dynamic response = Response(viaje.TransporteId);
 
 
@@ -244,10 +239,6 @@ namespace Application.UseCase
             _viajeCommand.Update(viajeId, viajeRequest);
             Viaje viaje = _viajeQuery.GetById(viajeId);
 
-            if (viaje == null) 
-            { 
-                return null; 
-            }
             dynamic responseTransporte = Response(viaje.TransporteId);
 
 

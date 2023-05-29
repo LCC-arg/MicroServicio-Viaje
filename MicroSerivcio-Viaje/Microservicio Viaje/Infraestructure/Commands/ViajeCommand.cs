@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.ICommands;
+﻿using Application.Exceptions;
+using Application.Interfaces.ICommands;
 using Application.Request;
 using Domain.Entities;
 using Infraestructure.Persistence;
@@ -26,7 +27,7 @@ namespace Infraestructure.Commands
                 .FirstOrDefault(v => v.ViajeId == viajeId);
             if (viaje == null)
             {
-                return null;
+                throw new NotFoundException("No existe un viaje con ese Id");
             }
             _context.Viaje.Remove(viaje);
             _context.SaveChanges();
@@ -47,7 +48,10 @@ namespace Infraestructure.Commands
             var updateViaje = _context.Viaje
                 .FirstOrDefault(v => v.ViajeId == viajeId);
 
-
+            if (updateViaje == null)
+            {
+                throw new NotFoundException("No existe un viaje con ese id");
+            }
             updateViaje.TransporteId = viajeRequest.transporteId;
             updateViaje.Duracion = viajeRequest.duracion;
             updateViaje.HorarioSalida = DateTime.Parse(viajeRequest.horarioSalida);

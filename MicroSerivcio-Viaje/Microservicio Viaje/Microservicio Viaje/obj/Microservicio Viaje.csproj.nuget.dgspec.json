@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Microservicio Viaje\\Microservicio Viaje.csproj": {}
+    "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Microservicio Viaje\\Microservicio Viaje.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj": {
+    "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Peceta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\obj\\",
+        "projectPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\gonzalo.corsiglia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Peceta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gonzalo.corsiglia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj"
+              "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj"
               }
             }
           }
@@ -75,8 +75,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -85,24 +84,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj": {
+    "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Peceta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\gonzalo.corsiglia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Peceta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gonzalo.corsiglia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -156,8 +155,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -166,24 +164,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\Infraestructure.csproj": {
+    "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\Infraestructure.csproj",
+        "projectUniqueName": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\Infraestructure.csproj",
         "projectName": "Infraestructure",
-        "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\Infraestructure.csproj",
-        "packagesPath": "C:\\Users\\Peceta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\obj\\",
+        "projectPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\Infraestructure.csproj",
+        "packagesPath": "C:\\Users\\gonzalo.corsiglia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Peceta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gonzalo.corsiglia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -198,8 +196,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj"
+              "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Application\\Application.csproj"
               }
             }
           }
@@ -241,8 +239,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -251,24 +248,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Microservicio Viaje\\Microservicio Viaje.csproj": {
+    "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Microservicio Viaje\\Microservicio Viaje.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Microservicio Viaje\\Microservicio Viaje.csproj",
+        "projectUniqueName": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Microservicio Viaje\\Microservicio Viaje.csproj",
         "projectName": "Microservicio Viaje",
-        "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Microservicio Viaje\\Microservicio Viaje.csproj",
-        "packagesPath": "C:\\Users\\Peceta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Microservicio Viaje\\obj\\",
+        "projectPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Microservicio Viaje\\Microservicio Viaje.csproj",
+        "packagesPath": "C:\\Users\\gonzalo.corsiglia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Microservicio Viaje\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Peceta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gonzalo.corsiglia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -283,8 +280,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\Infraestructure.csproj": {
-                "projectPath": "C:\\Users\\Peceta\\OneDrive\\Desktop\\Uni Primer Cuatrimestre\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\Infraestructure.csproj"
+              "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\Infraestructure.csproj": {
+                "projectPath": "C:\\Users\\gonzalo.corsiglia\\Desktop\\Proyecto Software\\TP Grupal\\MicroServicio-Viaje\\MicroSerivcio-Viaje\\Microservicio Viaje\\Infraestructure\\Infraestructure.csproj"
               }
             }
           }
@@ -330,8 +327,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -343,7 +339,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

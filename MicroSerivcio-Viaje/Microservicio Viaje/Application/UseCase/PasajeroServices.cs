@@ -301,10 +301,20 @@ namespace Application.UseCase
 
         public PasajeroResponse UpdatePasajero(int pasajeroId, PasajeroRequest pasajeroRequest)
         {
-            _pasajeroCommand.Update(pasajeroId, pasajeroRequest);
             Pasajero pasajero = _pasajeroQuery.GetById(pasajeroId);
             Viaje viaje = _viajeQuery.GetById(pasajeroRequest.viajeId);
+            IEnumerable<Pasajero> pasajeros = _pasajeroQuery.GetAll();
             dynamic response = Response(pasajero.Viaje.TransporteId);
+
+            foreach (Pasajero passenger in pasajeros)
+            {
+                if (passenger.ViajeId == pasajeroRequest.viajeId && passenger.Dni == pasajeroRequest.dni)
+                {
+                    throw new HasConflictException("Ya existe un pasajero con ese dni asignado al mismo viaje");
+                }
+            }
+
+            _pasajeroCommand.Update(pasajeroId, pasajeroRequest);
 
             return new PasajeroResponse
             {

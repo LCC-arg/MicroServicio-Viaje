@@ -95,18 +95,29 @@ namespace Microservicio_Viaje.Controllers
         [ProducesResponseType(typeof(BadRequest), 404)]
         public IActionResult UpdatePasajero(int id, PasajeroRequest request)
         {
-            if (!int.TryParse(id.ToString(), out _))
+            try
             {
-                throw new BadRequestException("El formato de id ingresado es invalido");
+                if (!int.TryParse(id.ToString(), out _))
+                {
+                    throw new BadRequestException("El formato de id ingresado es invalido");
+                }
+
+                var result = _pasajeroService.UpdatePasajero(id, request);
+
+                return new JsonResult(result) { StatusCode = 200 };
             }
-
-            var result = _pasajeroService.UpdatePasajero(id, request);
-
-            if (result == null)
+            catch (NotFoundException ex)
             {
-                return NotFound(new { message = "No se encontro el pasajero" });
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 404 };
             }
-            return new JsonResult(result) { StatusCode = 200 };
+            catch (HasConflictException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 409 };
+            }
+            catch(BadRequestException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
+            }
         }
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<PasajeroResponse>), 200)]
