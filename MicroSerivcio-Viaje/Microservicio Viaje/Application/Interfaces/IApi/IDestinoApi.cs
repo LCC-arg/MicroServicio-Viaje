@@ -8,6 +8,6 @@ namespace Application.Interfaces.IApi
 {
     public interface IDestinoApi
     {
-        dynamic GetDestinoById(int destinoId);
+        dynamic CreateViajeCiudad(int viajeId, int ciudadId);
     }
 }

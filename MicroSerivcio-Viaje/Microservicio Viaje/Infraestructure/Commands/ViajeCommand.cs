@@ -47,14 +47,13 @@ namespace Infraestructure.Commands
             var updateViaje = _context.Viaje
                 .FirstOrDefault(v => v.ViajeId == viajeId);
 
-            updateViaje.CiudadOrigen = viajeRequest.ciudadOrigen;
-            updateViaje.CiudadDestino = viajeRequest.ciudadDestino;
+
             updateViaje.TransporteId = viajeRequest.transporteId;
             updateViaje.Duracion = viajeRequest.duracion;
-            updateViaje.HorarioSalida = viajeRequest.horarioSalida;
-            updateViaje.HorarioLlegada = viajeRequest.horarioLlegada;
-            updateViaje.FechaLlegada = viajeRequest.fechaLlegada;
-            updateViaje.FechaSalida = viajeRequest.fechaSalida;
+            updateViaje.HorarioSalida = DateTime.Parse(viajeRequest.horarioSalida);
+            updateViaje.HorarioLlegada = DateTime.Parse(viajeRequest.horarioLlegada);
+            updateViaje.FechaLlegada = DateTime.Parse(viajeRequest.fechaLlegada);
+            updateViaje.FechaSalida = DateTime.Parse(viajeRequest.fechaSalida);
             updateViaje.TipoViaje = viajeRequest.tipoViaje;
 
             _context.Update(updateViaje);

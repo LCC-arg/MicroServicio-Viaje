@@ -1,8 +1,10 @@
 ﻿using Application.Exceptions;
 using Application.Interfaces.IApi;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,21 +23,41 @@ namespace Infraestructure.Client
             _httpClient.BaseAddress = new Uri("https://localhost:7018");
         }
 
-        public dynamic GetDestinoById(int destinoId)
+        public dynamic CreateViajeCiudad(int viajeId, int ciudadId)
         {
-            HttpResponseMessage response = _httpClient.GetAsync($"/api/Destinos/ViajeCiudad/{destinoId}").Result;
+            var diccionario = new Dictionary<string, int>
+            {
+                {"viajeId", viajeId},
+                {"ciudadId" ,ciudadId}
+            };
+
+            string json = JsonConvert.SerializeObject(diccionario);
+
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = _httpClient.PostAsync($"/api/Destinos/ViajeCiudad", data).Result;
 
             if (response.IsSuccessStatusCode)
             {
-                dynamic destino = response.Content.ReadAsAsync<dynamic>().Result;
-                return destino;
+                dynamic responseBody = response.Content.ReadAsStringAsync().Result;
+                return responseBody;
             }
             else
             {
-                throw new NotFoundException($"Error al obtener el Destino. Código de respuesta: {response.StatusCode}");
+                throw new Exception($"Error al crear viaje ciudad. Código de respuesta: {response.StatusCode}");
             }
-
         }
     }
 }
 
+//HttpResponseMessage response = _httpClient.GetAsync($"/api/Destinos/ViajeCiudad").Result;
+
+//if (response.IsSuccessStatusCode)
+//{
+//    dynamic destino = response.Content.ReadAsAsync<dynamic>().Result;
+//    return destino;
+//}
+//else
+//{
+//    throw new NotFoundException($"Error al obtener el Destino. Código de respuesta: {response.StatusCode}");
+//}

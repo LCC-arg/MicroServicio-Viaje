@@ -9,8 +9,6 @@ namespace Domain.Entities
     public class Viaje
     {
         public int ViajeId { get; set; }
-        public int CiudadOrigen { get; set; }
-        public int CiudadDestino { get; set; }
         public int TransporteId { get; set; }
         public string Duracion { get; set; }
         public DateTime HorarioSalida { get; set; }

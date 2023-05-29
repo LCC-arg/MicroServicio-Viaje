@@ -10,8 +10,6 @@ namespace Application.Response
     public class ViajeResponse
     {
         public int id { get; set; }
-        public ViajeCiudadResponse ciudadOrigen { get; set; }
-        public ViajeCiudadResponse ciudadDestino { get; set; }
         public TransporteResponse transporte { get;set; }
         public string duracion { get; set; }
         public DateTime horarioSalida { get; set; }

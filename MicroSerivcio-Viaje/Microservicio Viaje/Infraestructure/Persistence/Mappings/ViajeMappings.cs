@@ -22,8 +22,6 @@ namespace Infraestructure.Persistence.Mappings
                .IsRequired();
 
             builder.Property(v => v.ViajeId).ValueGeneratedOnAdd();
-            builder.Property(v => v.CiudadOrigen).IsRequired();
-            builder.Property(v => v.CiudadDestino).IsRequired();
             builder.Property(v => v.TransporteId).IsRequired();
             builder.Property(v => v.Duracion).IsRequired();
             builder.Property(v => v.HorarioSalida).IsRequired();

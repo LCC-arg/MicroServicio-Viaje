@@ -140,7 +140,7 @@ namespace Microservicio_Viaje.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<ViajeResponse>), 200)]
         [ProducesResponseType(typeof(BadRequest), 400)]
-        public IActionResult GetViajes(string? tipo, DateTime? fechaSalida, DateTime? fechaLlegada)
+        public IActionResult GetViajes(string? tipo, string? fechaSalida, string? fechaLlegada)
         {
             try
             {

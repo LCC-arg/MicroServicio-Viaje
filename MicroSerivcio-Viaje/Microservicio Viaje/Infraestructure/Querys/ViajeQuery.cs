@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.IQuerys;
+﻿using Application.Exceptions;
+using Application.Interfaces.IQuerys;
 using Domain.Entities;
 using Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -42,8 +43,17 @@ namespace Infraestructure.Querys
             return pasajeros;
         }
 
-        public IEnumerable<Viaje> GetViajes(string? tipo, DateTime? fechaSalida, DateTime? fechaLlegada)
+        public IEnumerable<Viaje> GetViajes(string? tipo, string? fechaSalida, string? fechaLlegada)
         {
+            if (!DateTime.TryParse(fechaSalida, out _) && fechaSalida != null)
+            {
+                throw new BadRequestException("Fecha de Salida invalida");
+            }
+            if (!DateTime.TryParse(fechaLlegada, out _) && fechaLlegada != null)
+            {
+                throw new BadRequestException("Fecha de Llegada invalida");
+            }
+
             IEnumerable<Viaje> viajes = _context.Viaje;
             if (!string.IsNullOrEmpty(tipo)) 
             {
@@ -52,12 +62,12 @@ namespace Infraestructure.Querys
 
             if (fechaSalida != null)
             {
-                viajes = viajes.Where(v => v.FechaSalida.Date >= fechaSalida.Value.Date).ToList();
+                viajes = viajes.Where(v => v.FechaSalida.Date >= DateTime.Parse(fechaSalida)).ToList();
             }
 
             if (fechaLlegada != null)
             {
-                viajes = viajes.Where(v => v.FechaLlegada.Date <= fechaLlegada.Value.Date).ToList();
+                viajes = viajes.Where(v => v.FechaLlegada.Date <= DateTime.Parse(fechaLlegada)).ToList();
             }
 
             return viajes;

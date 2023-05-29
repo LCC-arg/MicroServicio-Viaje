@@ -83,8 +83,7 @@ namespace Application.UseCase
             };
 
             dynamic response = Response(newPasajero.Viaje.TransporteId);
-            dynamic responseOrigen = ResponseOrigen(newPasajero.Viaje.CiudadOrigen);
-            dynamic responseDestino = ResponseDestino(newPasajero.Viaje.CiudadDestino);
+
 
             var result = _pasajeroCommand.Insert(newPasajero);
             
@@ -101,48 +100,6 @@ namespace Application.UseCase
                 viaje = new ViajeResponse
                 {
                     id = result.ViajeId,
-                    ciudadOrigen = new ViajeCiudadResponse
-                    {
-                        Id = responseOrigen.id,
-                        ViajeId = responseOrigen.id,
-                        Ciudad = new CiudadResponse
-                        {
-                            Id = responseOrigen.ciudad.id,
-                            Nombre = responseOrigen.ciudad.nombre,
-                            Provincia = new ProvinciaResponse
-                            {
-                                Id = responseOrigen.ciudad.provincia.id,
-                                Nombre = responseOrigen.ciudad.provincia.nombre,
-                                Pais = new PaisResponse
-                                {
-                                    Id = responseOrigen.ciudad.provincia.pais.id,
-                                    Nombre = responseOrigen.ciudad.provincia.pais.nombre
-                                }
-                            }
-
-                        }
-                    },
-                    ciudadDestino = new ViajeCiudadResponse
-                    {
-                        Id = responseDestino.id,
-                        ViajeId = responseDestino.id,
-                        Ciudad = new CiudadResponse
-                        {
-                            Id = responseDestino.ciudad.id,
-                            Nombre = responseDestino.ciudad.nombre,
-                            Provincia = new ProvinciaResponse
-                            {
-                                Id = responseDestino.ciudad.provincia.id,
-                                Nombre = responseDestino.ciudad.provincia.nombre,
-                                Pais = new PaisResponse
-                                {
-                                    Id = responseDestino.ciudad.provincia.pais.id,
-                                    Nombre = responseDestino.ciudad.provincia.pais.Nombre
-                                }
-                            }
-
-                        }
-                    },
                     transporte = new TransporteResponse
                     {
                         id = response.id,
@@ -184,8 +141,7 @@ namespace Application.UseCase
                 throw new BadRequestException("No existe pasajero con ese Id");
             }
             dynamic response = Response(pasajero.Viaje.TransporteId);
-            dynamic responseOrigen = ResponseOrigen(pasajero.Viaje.CiudadOrigen);
-            dynamic responseDestino = ResponseDestino(pasajero.Viaje.CiudadDestino);
+
             return new PasajeroResponse
             {
                 id = pasajero.PasajeroId,
@@ -198,48 +154,6 @@ namespace Application.UseCase
                 viaje = new ViajeResponse
                 {
                     id = pasajero.ViajeId,
-                    ciudadOrigen = new ViajeCiudadResponse
-                    {
-                        Id = responseOrigen.id,
-                        ViajeId = responseOrigen.id,
-                        Ciudad = new CiudadResponse
-                        {
-                            Id = responseOrigen.ciudad.id,
-                            Nombre = responseOrigen.ciudad.nombre,
-                            Provincia = new ProvinciaResponse
-                            {
-                                Id = responseOrigen.ciudad.provincia.id,
-                                Nombre = responseOrigen.ciudad.provincia.nombre,
-                                Pais = new PaisResponse
-                                {
-                                    Id = responseOrigen.ciudad.provincia.pais.id,
-                                    Nombre = responseOrigen.ciudad.provincia.pais.nombre
-                                }
-                            }
-
-                        }
-                    },
-                    ciudadDestino = new ViajeCiudadResponse
-                    {
-                        Id = responseDestino.id,
-                        ViajeId = responseDestino.id,
-                        Ciudad = new CiudadResponse
-                        {
-                            Id = responseDestino.ciudad.id,
-                            Nombre = responseDestino.ciudad.nombre,
-                            Provincia = new ProvinciaResponse
-                            {
-                                Id = responseDestino.ciudad.provincia.id,
-                                Nombre = responseDestino.ciudad.provincia.nombre,
-                                Pais = new PaisResponse
-                                {
-                                    Id = responseDestino.ciudad.provincia.pais.id,
-                                    Nombre = responseDestino.ciudad.provincia.pais.nombre
-                                }
-                            }
-
-                        }
-                    },
                     transporte = new TransporteResponse
                     {
                         id = response.id,
@@ -283,8 +197,6 @@ namespace Application.UseCase
             if(pasajero != null) 
             {
                 dynamic response = Response(viaje.TransporteId);
-                dynamic responseOrigen = ResponseOrigen(viaje.CiudadOrigen);
-                dynamic responseDestino = ResponseDestino(viaje.CiudadDestino);
                 PasajeroResponse pasajeroResponse = new PasajeroResponse
                 {
                     id = pasajero.PasajeroId,
@@ -297,48 +209,6 @@ namespace Application.UseCase
                     viaje = new ViajeResponse
                     {
                         id = viaje.ViajeId,
-                        ciudadOrigen = new ViajeCiudadResponse
-                        {
-                            Id = responseOrigen.id,
-                            ViajeId = responseOrigen.id,
-                            Ciudad = new CiudadResponse
-                            {
-                                Id = responseOrigen.ciudad.id,
-                                Nombre = responseOrigen.ciudad.nombre,
-                                Provincia = new ProvinciaResponse
-                                {
-                                    Id = responseOrigen.ciudad.provincia.id,
-                                    Nombre = responseOrigen.ciudad.provincia.nombre,
-                                    Pais = new PaisResponse
-                                    {
-                                        Id = responseOrigen.ciudad.provincia.pais.id,
-                                        Nombre = responseOrigen.ciudad.provincia.pais.nombre
-                                    }
-                                }
-
-                            }
-                        },
-                        ciudadDestino = new ViajeCiudadResponse
-                        {
-                            Id = responseDestino.id,
-                            ViajeId = responseDestino.id,
-                            Ciudad = new CiudadResponse
-                            {
-                                Id = responseDestino.ciudad.id,
-                                Nombre = responseDestino.ciudad.nombre,
-                                Provincia = new ProvinciaResponse
-                                {
-                                    Id = responseDestino.ciudad.provincia.id,
-                                    Nombre = responseDestino.ciudad.provincia.nombre,
-                                    Pais = new PaisResponse
-                                    {
-                                        Id = responseDestino.ciudad.provincia.pais.id,
-                                        Nombre = responseDestino.ciudad.provincia.pais.nombre
-                                    }
-                                }
-
-                            }
-                        },
                         transporte = new TransporteResponse
                         {
                             id = response.id,
@@ -386,8 +256,6 @@ namespace Application.UseCase
                 foreach(Pasajero pasajero in pasajeros)
                 {
                     dynamic response = Response(pasajero.Viaje.TransporteId);
-                    dynamic responseOrigen = Response(pasajero.Viaje.CiudadOrigen);
-                    dynamic responseDestino = Response(pasajero.Viaje.CiudadDestino);
                     PasajeroResponse pasajeroResponse = new PasajeroResponse
                     {
                         id = pasajero.PasajeroId,
@@ -400,48 +268,7 @@ namespace Application.UseCase
                         viaje = new ViajeResponse
                         {
                             id = pasajero.Viaje.ViajeId,
-                            ciudadOrigen = new ViajeCiudadResponse
-                            {
-                                Id = responseOrigen.id,
-                                ViajeId = responseOrigen.id,
-                                Ciudad = new CiudadResponse
-                                {
-                                    Id = responseOrigen.ciudad.id,
-                                    Nombre = responseOrigen.ciudad.nombre,
-                                    Provincia = new ProvinciaResponse
-                                    {
-                                        Id = responseOrigen.ciudad.provincia.id,
-                                        Nombre = responseOrigen.ciudad.provincia.nombre,
-                                        Pais = new PaisResponse
-                                        {
-                                            Id = responseOrigen.ciudad.provincia.pais.id,
-                                            Nombre = responseOrigen.ciudad.provincia.pais.nombre
-                                        }
-                                    }
-
-                                }
-                            },
-                            ciudadDestino = new ViajeCiudadResponse
-                            {
-                                Id = responseDestino.id,
-                                ViajeId = responseDestino.id,
-                                Ciudad = new CiudadResponse
-                                {
-                                    Id = responseDestino.ciudad.id,
-                                    Nombre = responseDestino.ciudad.nombre,
-                                    Provincia = new ProvinciaResponse
-                                    {
-                                        Id = responseDestino.ciudad.provincia.id,
-                                        Nombre = responseDestino.ciudad.provincia.nombre,
-                                        Pais = new PaisResponse
-                                        {
-                                            Id = responseDestino.ciudad.provincia.pais.id,
-                                            Nombre = responseDestino.ciudad.provincia.pais.nombre
-                                        }
-                                    }
-
-                                }
-                            },
+ 
                             transporte = new TransporteResponse
                             {
                                 id = response.id,
@@ -478,8 +305,7 @@ namespace Application.UseCase
             Pasajero pasajero = _pasajeroQuery.GetById(pasajeroId);
             Viaje viaje = _viajeQuery.GetById(pasajeroRequest.viajeId);
             dynamic response = Response(pasajero.Viaje.TransporteId);
-            dynamic responseOrigen = Response(pasajero.Viaje.CiudadOrigen);
-            dynamic responseDestino = Response(pasajero.Viaje.CiudadDestino);
+
             return new PasajeroResponse
             {
                 id = pasajero.PasajeroId,
@@ -492,48 +318,6 @@ namespace Application.UseCase
                 viaje = new ViajeResponse
                 {
                     id = viaje.ViajeId,
-                    ciudadOrigen = new ViajeCiudadResponse
-                    {
-                        Id = responseOrigen.id,
-                        ViajeId = responseOrigen.id,
-                        Ciudad = new CiudadResponse
-                        {
-                            Id = responseOrigen.ciudad.id,
-                            Nombre = responseOrigen.ciudad.nombre,
-                            Provincia = new ProvinciaResponse
-                            {
-                                Id = responseOrigen.ciudad.provincia.id,
-                                Nombre = responseOrigen.ciudad.provincia.nombre,
-                                Pais = new PaisResponse
-                                {
-                                    Id = responseOrigen.ciudad.provincia.pais.id,
-                                    Nombre = responseOrigen.ciudad.provincia.pais.nombre
-                                }
-                            }
-
-                        }
-                    },
-                    ciudadDestino = new ViajeCiudadResponse
-                    {
-                        Id = responseDestino.id,
-                        ViajeId = responseDestino.id,
-                        Ciudad = new CiudadResponse
-                        {
-                            Id = responseDestino.ciudad.id,
-                            Nombre = responseDestino.ciudad.nombre,
-                            Provincia = new ProvinciaResponse
-                            {
-                                Id = responseDestino.ciudad.provincia.id,
-                                Nombre = responseDestino.ciudad.provincia.nombre,
-                                Pais = new PaisResponse
-                                {
-                                    Id = responseDestino.ciudad.provincia.pais.id,
-                                    Nombre = responseDestino.ciudad.provincia.pais.nombre
-                                }
-                            }
-
-                        }
-                    },
                     transporte = new TransporteResponse
                     {
                         id = response.id,
@@ -565,18 +349,8 @@ namespace Application.UseCase
             dynamic response = _transporteApi.GetTransporteById(transporteId);
             return response;
         }
-        private dynamic ResponseDestino(int destinoId)
-        {
-            dynamic response = _destinoApi.GetDestinoById(destinoId);
-            return response;
 
-        }
-        private dynamic ResponseOrigen(int origenId)
-        {
-            dynamic response = _destinoApi.GetDestinoById(origenId);
-            return response;
 
-        }
 
         public bool ValidarInt(int dato)
         {
