@@ -10,6 +10,7 @@ using Application.Response.Pais;
 using Application.Response.Provincia;
 using Application.Response.ViajeCiudad;
 using Domain.Entities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +25,15 @@ namespace Application.UseCase
         private readonly IViajeQuery _viajeQuery;
         private readonly ITransporteApi _transporteApi;
         private readonly IDestinoApi _destinoApi;
+        private readonly IServicioApi _servicioApi;
 
-        public ViajeServices(IViajeCommand viajeCommand, IViajeQuery viajeQuery, ITransporteApi transporteApi, IDestinoApi destinoApi)
+        public ViajeServices(IViajeCommand viajeCommand, IViajeQuery viajeQuery, ITransporteApi transporteApi, IDestinoApi destinoApi, IServicioApi servicioApi)
         {
             _viajeCommand = viajeCommand;
             _viajeQuery = viajeQuery;
             _transporteApi = transporteApi;
             _destinoApi = destinoApi;
+            _servicioApi = servicioApi;
 
         }
 
@@ -80,6 +83,11 @@ namespace Application.UseCase
             var viaje =  _viajeCommand.Insert(newViaje);
             dynamic responseOrigen = ResponseCiudades(viaje.ViajeId, viajeRequest.ciudades[0]);
             dynamic responseDestino = ResponseCiudades(viaje.ViajeId, viajeRequest.ciudades[1]);
+
+            foreach(int servicio in viajeRequest.servicios)
+            {
+                dynamic responseServicio = ResponseServicios(viaje.ViajeId, servicio);
+            }
 
             return new ViajeResponse
             {
@@ -313,6 +321,8 @@ namespace Application.UseCase
             }
             return viajeResponses;
         }
+
+
         private dynamic Response(int transporteId) 
         {
             dynamic response = _transporteApi.GetTransporteById(transporteId);
@@ -324,5 +334,75 @@ namespace Application.UseCase
             return response;
 
         }
+        private dynamic ResponseServicios(int viajeId, int servicioId)
+        {
+            dynamic response = _servicioApi.CreateViajeServicio(viajeId, servicioId);
+            return response;
+        }
+
+        private dynamic ResponseViajeWithLocation(string localizacion)
+        {
+            dynamic response = _destinoApi.GetAllViajesWithLocalization(localizacion);
+            return response;
+        }
+
+        public IEnumerable<ViajeResponse> viajesWithLocation(string? localizacion)
+        {
+            dynamic response = ResponseViajeWithLocation(localizacion);
+            List<int> viajesIds = new List<int>();
+
+            if (response != null)
+            {
+                string jsonString = response.ToString(); 
+                List<dynamic> viajesJson = JsonConvert.DeserializeObject<List<dynamic>>(jsonString);
+
+                foreach (dynamic viajeJson in viajesJson)
+                {
+                    int viajeId = viajeJson.viajeId;
+                    viajesIds.Add(viajeId);
+                }
+            }
+            var viajes = _viajeQuery.GetViajesWithLocation(viajesIds);
+            List<ViajeResponse> viajeResponses = new List<ViajeResponse>();
+
+            if (viajes != null)
+            {
+                foreach (Viaje viaje in viajes)
+                {
+                    dynamic responseTransporte = Response(viaje.TransporteId);
+
+                    ViajeResponse viajeResponse = new ViajeResponse
+                    {
+                        id = viaje.ViajeId,
+                        transporte = new TransporteResponse
+                        {
+                            id = responseTransporte.id,
+                            tipoTransporte = new TipoTransporteResponse
+                            {
+                                id = responseTransporte.tipoTransporteResponse.id,
+                                descripcion = responseTransporte.tipoTransporteResponse.descripcion
+                            },
+                            companiaTransporte = new CompaniaTransporteResponse
+                            {
+                                id = responseTransporte.companiaTransporteResponse.id,
+                                razonSocial = responseTransporte.companiaTransporteResponse.razonSocial,
+                                cuit = responseTransporte.companiaTransporteResponse.cuit
+                            }
+                        },
+                        duracion = viaje.Duracion,
+                        horarioSalida = viaje.HorarioSalida,
+                        horarioLlegada = viaje.HorarioLlegada,
+                        fechaSalida = viaje.FechaSalida,
+                        fechaLlegada = viaje.FechaLlegada,
+                        tipoViaje = viaje.TipoViaje
+                    };
+                    viajeResponses.Add(viajeResponse);
+                }
+            }
+            return viajeResponses;
+        }
+
+
     }
+    
 }

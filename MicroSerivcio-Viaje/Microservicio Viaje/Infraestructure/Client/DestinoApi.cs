@@ -47,6 +47,22 @@ namespace Infraestructure.Client
                 throw new Exception($"Error al crear viaje ciudad. Código de respuesta: {response.StatusCode}");
             }
         }
+        public dynamic GetAllViajesWithLocalization(string localizacion)
+        {
+            string url = $"/api/Destinos/ViajeCiudad?localizacion={localizacion}";
+            HttpResponseMessage response = _httpClient.GetAsync(url).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                dynamic transporte = response.Content.ReadAsAsync<dynamic>().Result;
+                return transporte;
+            }
+            else
+            {
+                throw new NotFoundException($"Error al obtener el Transporte. Código de respuesta: {response.StatusCode}");
+            }
+
+        }
     }
 }
 

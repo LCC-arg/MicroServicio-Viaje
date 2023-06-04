@@ -168,5 +168,24 @@ namespace Microservicio_Viaje.Controllers
             }
 
         }
+
+        [HttpGet("viajes-with-location")]
+        [ProducesResponseType(typeof(IEnumerable<ViajeResponse>), 200)]
+        [ProducesResponseType(typeof(BadRequest), 400)]
+        public IActionResult GetViajesWithLocation(string? localizacion)
+        {
+            try
+            {
+                var result = _viajeServices.viajesWithLocation(localizacion);
+
+
+                return Ok(result);
+            }
+            catch (BadRequestException ex)
+            {
+                return new JsonResult(new BadRequest { message = ex.Message }) { StatusCode = 400 };
+            }
+
+        }
     }
 }

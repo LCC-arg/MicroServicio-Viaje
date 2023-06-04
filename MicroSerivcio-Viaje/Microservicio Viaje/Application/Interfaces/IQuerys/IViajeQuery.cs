@@ -13,5 +13,7 @@ namespace Application.Interfaces.IQuerys
         Viaje GetById(int viajeId);
         List<Pasajero> GetAllPasajerosById(int viajeId);
         IEnumerable<Viaje> GetViajes(string? tipo, string? fechaSalida, string? fechaLlegada);
+
+        IEnumerable<Viaje> GetViajesWithLocation(List<int> viajesIds);
     }
 }

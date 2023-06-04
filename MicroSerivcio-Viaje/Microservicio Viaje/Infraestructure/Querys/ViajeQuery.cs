@@ -72,5 +72,11 @@ namespace Infraestructure.Querys
 
             return viajes;
         }
+
+        public IEnumerable<Viaje> GetViajesWithLocation(List<int> viajesIds)
+        {
+            IEnumerable<Viaje> viajes = _context.Viaje.Where(v => viajesIds.Contains(v.ViajeId)).ToList();
+            return viajes;
+        }
     }
 }

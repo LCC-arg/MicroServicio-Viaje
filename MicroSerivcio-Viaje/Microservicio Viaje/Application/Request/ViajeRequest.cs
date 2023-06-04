@@ -16,6 +16,7 @@ namespace Application.Request
         public string fechaSalida { get; set; }
         public string tipoViaje { get; set; }
         public List<int> ciudades { get; set; }
+        public List<int> servicios { get; set; }
         
     }
 }

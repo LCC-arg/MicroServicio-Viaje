@@ -20,5 +20,7 @@ namespace Application.Interfaces.IServices
         ViajeResponse DeleteViaje(int viajeId);
 
         List<GetAllPasajerosByIdResponse> GetAllPasajerosById(int viajeId);
+
+        IEnumerable<ViajeResponse> viajesWithLocation(string? localizacion);
     }
 }

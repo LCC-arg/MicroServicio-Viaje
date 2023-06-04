@@ -30,6 +30,7 @@ builder.Services.AddScoped<IViajeCommand, ViajeCommand>();
 builder.Services.AddScoped<IViajeQuery, ViajeQuery>();
 builder.Services.AddScoped<ITransporteApi, TransporteApi>();
 builder.Services.AddScoped<IDestinoApi, DestinoApi>();
+builder.Services.AddScoped<IServicioApi, ServicioApi>();
 
 
 

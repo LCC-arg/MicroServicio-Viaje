@@ -9,5 +9,6 @@ namespace Application.Interfaces.IApi
     public interface IDestinoApi
     {
         dynamic CreateViajeCiudad(int viajeId, int ciudadId);
+        dynamic GetAllViajesWithLocalization(string localizacion);
     }
 }
