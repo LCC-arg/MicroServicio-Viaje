@@ -35,7 +35,7 @@ namespace Infraestructure.Client
 
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = _httpClient.PostAsync($"/api/Destinos/ViajeCiudad", data).Result;
+            HttpResponseMessage response = _httpClient.PostAsync($"/api/ViajeCiudad", data).Result;
 
             if (response.IsSuccessStatusCode)
             {
@@ -49,7 +49,7 @@ namespace Infraestructure.Client
         }
         public dynamic GetAllViajesWithLocalization(string localizacion)
         {
-            string url = $"/api/Destinos/ViajeCiudad?localizacion={localizacion}";
+            string url = $"/api/ViajeCiudad?localizacion={localizacion}";
             HttpResponseMessage response = _httpClient.GetAsync(url).Result;
 
             if (response.IsSuccessStatusCode)

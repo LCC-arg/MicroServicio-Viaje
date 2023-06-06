@@ -188,3 +188,22 @@ C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Gr
 C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.pdb
 C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.genruntimeconfig.cache
 C:\Users\solow\Desktop\Primer Cuatrimestre\Proyecto de Software N°1\Proyecto Grupal\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\ref\Infraestructure.dll
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\bin\Debug\net6.0\Infraestructure.deps.json
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\bin\Debug\net6.0\Infraestructure.runtimeconfig.json
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\bin\Debug\net6.0\Infraestructure.dll
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\bin\Debug\net6.0\Infraestructure.pdb
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\bin\Debug\net6.0\Application.dll
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\bin\Debug\net6.0\Domain.dll
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\bin\Debug\net6.0\Application.pdb
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\bin\Debug\net6.0\Domain.pdb
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.csproj.AssemblyReference.cache
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.AssemblyInfoInputs.cache
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.AssemblyInfo.cs
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.csproj.CoreCompileInputs.cache
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.csproj.CopyComplete
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.dll
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\refint\Infraestructure.dll
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.pdb
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\Infraestructure.genruntimeconfig.cache
+D:\1_C_2023_UNI\TP-GRUPAL\MicroServicio-Viaje\MicroSerivcio-Viaje\Microservicio Viaje\Infraestructure\obj\Debug\net6.0\ref\Infraestructure.dll
