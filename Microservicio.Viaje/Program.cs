@@ -1,9 +1,11 @@
 using Application.Interfaces;
+using Application.Interfaces.IApi;
 using Application.UseCase.Pasajeros;
 using Application.UseCase.Viajes;
 using Infraestructure.Command;
 using Infraestructure.Persistence;
 using Infraestructure.Querys;
+using Infraestructure.UseServices;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +28,10 @@ builder.Services.AddScoped<IPasajeroQuery, PasajeroQuery>();
 builder.Services.AddScoped<IViajeService, ViajeService>();
 builder.Services.AddScoped<IViajeCommand, ViajeCommand>();
 builder.Services.AddScoped<IViajeQuery, ViajeQuery>();
+
+builder.Services.AddScoped<IDestinoApi, DestinoApi>();
+builder.Services.AddScoped<IServicioApi, ServicioApi>();
+
 
 //CORS deshabilitar
 builder.Services.AddCors(options =>
