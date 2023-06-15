@@ -26,6 +26,11 @@ namespace Application.UseCase.Viajes
         {
             var viaje = _query.GetViajeById(viajeId);
 
+            if (viaje == null)
+            {
+                throw new ArgumentException($"No se encontró el viaje con el identificador {viajeId}.");
+            }
+
             return new ViajeResponse
             {
                 Id = viaje.ViajeId,
@@ -37,9 +42,9 @@ namespace Application.UseCase.Viajes
             };
         }
 
-        public List<ViajeResponse> GetViajeList()
+        public List<Viaje> GetViajeList()
         {
-            throw new NotImplementedException();
+            return _query.GetViajeList();
         }
 
         public List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId)
@@ -78,14 +83,19 @@ namespace Application.UseCase.Viajes
 
             var viajeInserte = _command.InsertViaje(viaje);
 
-            _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, request.CiudadOrigen);
+            _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, request.CiudadOrigen,"Origen");
 
             foreach (var escala in request.Escalas)
             {
-                _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, escala);
+                _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, escala, "Escala");
             }
 
-            _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, request.CiudadOrigen);
+            _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, request.CiudadOrigen, "Destino");
+
+            foreach(var servicio in request.Servicios)
+            {
+                _servicioApi.CreateViajeServicio(viajeInserte.ViajeId, servicio);
+            }
 
             return new ViajeResponse
             {
@@ -100,12 +110,50 @@ namespace Application.UseCase.Viajes
 
         public ViajeResponse RemoveViaje(int viajeId)
         {
-            throw new NotImplementedException();
+            if (_query.GetViajeById(viajeId) == null)
+            {
+                throw new ArgumentException($"No se encontró el viaje que desea eliminar con el identificador '{viajeId}'.");
+            }
+
+            var viaje = _command.RemoveViaje(viajeId);
+
+            return new ViajeResponse
+            {
+                Id = viaje.ViajeId,
+                TransporteId = viaje.TransporteId,
+                Duracion = viaje.Duracion,
+                FechaSalida = viaje.FechaSalida,
+                FechaLlegada = viaje.FechaLlegada,
+                TipoViaje = viaje.TipoViaje
+            };
         }
 
         public ViajeResponse UpdateViaje(int viajeId, ViajeRequest request)
         {
-            throw new NotImplementedException();
+            var viaje = _query.GetViajeById(viajeId);
+
+            if (viaje == null)
+            {
+                throw new ArgumentException($"No se encontró el viaje con el identificador {viajeId}.");
+            }
+
+            viaje.TransporteId = request.TransporteId;
+            viaje.Duracion = request.Duracion;
+            viaje.FechaLlegada = DateTime.Parse(request.FechaLlegada);
+            viaje.FechaSalida = DateTime.Parse(request.FechaSalida);
+            viaje.TipoViaje = request.TipoViaje;
+
+            _command.UpdateViaje(viaje);
+
+            return new ViajeResponse
+            {
+                Id = viaje.ViajeId,
+                TransporteId = viaje.TransporteId,
+                Duracion = viaje.Duracion,
+                FechaSalida = viaje.FechaSalida,
+                FechaLlegada = viaje.FechaLlegada,
+                TipoViaje = viaje.TipoViaje
+            };
         }
     }
 }

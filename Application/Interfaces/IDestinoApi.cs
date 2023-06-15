@@ -2,6 +2,6 @@
 {
     public interface IDestinoApi
     {
-        dynamic CreateViajeCiudad(int viajeId, int ciudadId);
+        dynamic CreateViajeCiudad(int viajeId, int ciudadId, string tipo);
     }
 }

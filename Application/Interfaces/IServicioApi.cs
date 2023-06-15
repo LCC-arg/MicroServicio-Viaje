@@ -2,6 +2,6 @@
 {
     public interface IServicioApi
     {
-        dynamic CreateViajeServicio(int viajeId, int servicioId, string tipo);
+        dynamic CreateViajeServicio(int viajeId, int servicioId);
     }
 }

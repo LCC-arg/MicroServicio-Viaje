@@ -14,13 +14,12 @@ namespace Infraestructure.UseServices
             _httpClient.BaseAddress = new Uri("https://localhost:7040");
         }
 
-        public dynamic CreateViajeServicio(int viajeId, int servicioId, string tipo)
+        public dynamic CreateViajeServicio(int viajeId, int servicioId)
         {
-            var diccionario = new Dictionary<string, object>
+            var diccionario = new Dictionary<string, int>
             {
                 {"viajeId", viajeId},
                 {"servicioId" ,servicioId},
-                {"tipo","tipo" },
             };
 
             string json = JsonConvert.SerializeObject(diccionario);
