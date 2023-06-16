@@ -12,7 +12,39 @@ namespace Infraestructure.UseServices
         public DestinoApi()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:7018");
+            _httpClient.BaseAddress = new Uri("https://localhost:7018/api/");
+        }
+
+        public dynamic ObtenerViajeList()
+        {
+            HttpResponseMessage response = _httpClient.GetAsync($"ViajeCiudad").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                dynamic viaje = response.Content.ReadAsAsync<dynamic>().Result;
+                return viaje;
+            }
+            else
+            {
+                throw new Exception($"Error al crear viaje ciudad. Código de respuesta: {response.StatusCode}");
+            }
+        }
+
+        public dynamic ObtenerViajeList(int viajeId)
+        {
+            HttpResponseMessage response = _httpClient.GetAsync($"ViajeCiudad?viajeId={viajeId}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                dynamic viaje = response.Content.ReadAsAsync<dynamic>().Result;
+                return viaje;
+            }
+            else
+            {
+                throw new Exception($"Error al crear viaje ciudad. Código de respuesta: {response.StatusCode}");
+            }
         }
 
         public dynamic CreateViajeCiudad(int viajeId, int ciudadId, string tipo)
@@ -28,7 +60,7 @@ namespace Infraestructure.UseServices
 
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = _httpClient.PostAsync($"/api/ViajeCiudad", data).Result;
+            HttpResponseMessage response = _httpClient.PostAsync($"ViajeCiudad", data).Result;
 
             if (response.IsSuccessStatusCode)
             {

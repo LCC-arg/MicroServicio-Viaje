@@ -6,6 +6,6 @@ namespace Application.Interfaces
     {
         Viaje GetViajeById(int viajeId);
         List<Viaje> GetViajeList();
-        List<Viaje> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId);
+        List<Viaje> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino);
     }
 }

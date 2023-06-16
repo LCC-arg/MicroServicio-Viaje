@@ -3,6 +3,7 @@ using Application.Interfaces.IApi;
 using Application.Request;
 using Application.Response;
 using Domain.Entities;
+using Newtonsoft.Json.Linq;
 
 namespace Application.UseCase.Viajes
 {
@@ -47,14 +48,58 @@ namespace Application.UseCase.Viajes
             return _query.GetViajeList();
         }
 
-        public List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId)
+        public List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino)
         {
-            var viajeList = _query.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId);
+            var viajeList = _query.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId, ciudadOrigen, ciudadDestino);
 
             List<ViajeResponse> viajeResponseList = new List<ViajeResponse>();
 
             foreach (var viaje in viajeList)
             {
+                var listaJsonViajes = _destinoApi.ObtenerViajeList(viaje.ViajeId);
+
+                var listaJsonServicio = _servicioApi.ObtenerServicioList(viaje.ViajeId);
+
+                int ciudadOrigenResponse = 0;
+                int ciudadDestinoResponse = 0;
+
+                List<int> escalas = new List<int>();
+                List<int> servicios = new List<int>();
+
+                foreach (object json in listaJsonViajes)
+                {
+                    string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(json);
+                    JToken token = JToken.Parse(jsonString);
+
+                    int idCiudad = (int)token.SelectToken("ciudad.id");
+                    string tipoCiudad = (string)token.SelectToken("tipo");
+
+                    if (tipoCiudad == "Origen")
+                    {
+                        ciudadOrigenResponse = idCiudad;
+                    }
+
+                    if (tipoCiudad == "Destino")
+                    {
+                        ciudadDestinoResponse = idCiudad;
+                    }
+
+                    if (tipoCiudad == "Escala")
+                    {
+                        escalas.Add(idCiudad);
+                    }
+                }
+
+                foreach (var json in listaJsonServicio)
+                {
+                    string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(json);
+                    JToken token = JToken.Parse(jsonString);
+
+                    int idServicio = (int)token.SelectToken("servicioId");
+
+                    servicios.Add(idServicio);
+                }
+
                 var viajeResponse = new ViajeResponse
                 {
                     Id = viaje.ViajeId,
@@ -62,7 +107,11 @@ namespace Application.UseCase.Viajes
                     Duracion = viaje.Duracion,
                     FechaSalida = viaje.FechaSalida,
                     FechaLlegada = viaje.FechaLlegada,
-                    TipoViaje = viaje.TipoViaje
+                    TipoViaje = viaje.TipoViaje,
+                    CiudadOrigen = ciudadOrigenResponse,
+                    CiudadDestino = ciudadDestinoResponse,
+                    Escalas = escalas,
+                    Servicios = servicios
                 };
                 viajeResponseList.Add(viajeResponse);
             }
@@ -83,16 +132,16 @@ namespace Application.UseCase.Viajes
 
             var viajeInserte = _command.InsertViaje(viaje);
 
-            _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, request.CiudadOrigen,"Origen");
+            _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, request.CiudadOrigen, "Origen");
 
             foreach (var escala in request.Escalas)
             {
                 _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, escala, "Escala");
             }
 
-            _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, request.CiudadOrigen, "Destino");
+            _destinoApi.CreateViajeCiudad(viajeInserte.ViajeId, request.CiudadDestino, "Destino");
 
-            foreach(var servicio in request.Servicios)
+            foreach (var servicio in request.Servicios)
             {
                 _servicioApi.CreateViajeServicio(viajeInserte.ViajeId, servicio);
             }
@@ -104,7 +153,11 @@ namespace Application.UseCase.Viajes
                 Duracion = viaje.Duracion,
                 FechaSalida = viaje.FechaSalida,
                 FechaLlegada = viaje.FechaLlegada,
-                TipoViaje = viaje.TipoViaje
+                TipoViaje = viaje.TipoViaje,
+                CiudadOrigen = request.CiudadOrigen,
+                CiudadDestino = request.CiudadDestino,
+                Escalas = request.Escalas,
+                Servicios = request.Servicios,
             };
         }
 

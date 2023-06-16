@@ -11,7 +11,23 @@ namespace Infraestructure.UseServices
         public ServicioApi()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:7040");
+            _httpClient.BaseAddress = new Uri("https://localhost:7040/api/");
+        }
+
+        public dynamic ObtenerServicioList(int viajeId)
+        {
+            HttpResponseMessage response = _httpClient.GetAsync($"ViajeServicio?viajeId={viajeId}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                dynamic viaje = response.Content.ReadAsAsync<dynamic>().Result;
+                return viaje;
+            }
+            else
+            {
+                throw new Exception($"Error al crear viaje ciudad. Código de respuesta: {response.StatusCode}");
+            }
         }
 
         public dynamic CreateViajeServicio(int viajeId, int servicioId)
@@ -26,7 +42,7 @@ namespace Infraestructure.UseServices
 
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = _httpClient.PostAsync($"/api/ViajeServicio", data).Result;
+            HttpResponseMessage response = _httpClient.PostAsync($"ViajeServicio", data).Result;
 
             if (response.IsSuccessStatusCode)
             {

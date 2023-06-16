@@ -8,7 +8,7 @@ namespace Application.Interfaces
     {
         ViajeResponse GetViajeById(int viajeId);
         List<Viaje> GetViajeList();
-        List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId);
+        List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino);
         ViajeResponse CreateViaje(ViajeRequest viaje);
         ViajeResponse RemoveViaje(int viajeId);
         ViajeResponse UpdateViaje(int viajeId, ViajeRequest request);

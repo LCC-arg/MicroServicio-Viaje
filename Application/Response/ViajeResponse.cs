@@ -8,6 +8,9 @@
         public DateTime FechaSalida { get; set; }
         public DateTime FechaLlegada { get; set; }
         public string TipoViaje { get; set; }
-
+        public int CiudadOrigen { get; set; }
+        public int CiudadDestino { get; set; }
+        public List<int> Escalas { get; set; }
+        public List<int> Servicios { get; set; }
     }
 }
