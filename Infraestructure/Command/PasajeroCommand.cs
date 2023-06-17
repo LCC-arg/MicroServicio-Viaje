@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
 using Infraestructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.Command
 {
@@ -24,6 +25,7 @@ namespace Infraestructure.Command
         public Pasajero RemovePasajero(int pasajeroId)
         {
             var pasajero = _context.Pasajeros
+            .Include(s => s.Viaje)
             .FirstOrDefault(x => x.PasajeroId == pasajeroId);
 
             _context.Remove(pasajero);

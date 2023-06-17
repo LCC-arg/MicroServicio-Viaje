@@ -20,8 +20,19 @@ namespace Microservicio_Viaje.Controllers
         [ProducesResponseType(typeof(ViajeResponse), 200)]
         public IActionResult GetViajeListFilters(string? tipo, string? fechaSalida, string? fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino)
         {
-            var result = _service.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId, ciudadOrigen, ciudadDestino);
-            return new JsonResult(result);
+            try
+            {
+                var result = _service.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId, ciudadOrigen, ciudadDestino);
+                return new JsonResult(result);
+            }
+            
+            catch (Exception ex)
+            {
+                return NotFound(new BadRequest
+                {
+                    Message = ex.Message
+                });
+            }
         }
 
         [HttpPost]

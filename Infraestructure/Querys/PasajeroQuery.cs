@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
 using Infraestructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.Querys
 {
@@ -15,14 +16,18 @@ namespace Infraestructure.Querys
 
         public Pasajero GetPasajeroById(int pasajeroId)
         {
-            var pasajero = _context.Pasajeros.FirstOrDefault(x => x.PasajeroId == pasajeroId);
+            var pasajero = _context.Pasajeros
+                .Include(s => s.Viaje)
+                .FirstOrDefault(x => x.PasajeroId == pasajeroId);
 
             return pasajero;
         }
 
         public List<Pasajero> GetPasajeroList()
         {
-            var pasajeroList = _context.Pasajeros.ToList();
+            var pasajeroList = _context.Pasajeros
+                .Include(s => s.Viaje)
+                .ToList();
 
             return pasajeroList;
         }

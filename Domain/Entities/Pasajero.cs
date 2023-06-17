@@ -9,8 +9,11 @@
         public DateTime FechaNacimiento { get; set; }
         public string Genero { get; set; }
         public int NumContactoEmergencia { get; set; }
-        public int ViajeId { get; set; }
         public string Nacionalidad { get; set; }
+
+        public int ViajeId { get; set; }
         public Viaje Viaje { get; set; }
+
+
     }
 }

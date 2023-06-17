@@ -9,7 +9,7 @@
         public DateTime FechaNacimiento { get; set; }
         public string Genero { get; set; }
         public int NumContactoEmergencia { get; set; }
-        public ViajeResponse Viaje { get; set; }
-
+        public string Nacionalidad { get; set; }
+        public ViajeGetResponse Viaje { get; set; }
     }
 }

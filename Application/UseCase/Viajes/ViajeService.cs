@@ -32,20 +32,7 @@ namespace Application.UseCase.Viajes
                 throw new ArgumentException($"No se encontró el viaje con el identificador {viajeId}.");
             }
 
-            return new ViajeResponse
-            {
-                Id = viaje.ViajeId,
-                TransporteId = viaje.TransporteId,
-                Duracion = viaje.Duracion,
-                FechaSalida = viaje.FechaSalida,
-                FechaLlegada = viaje.FechaLlegada,
-                TipoViaje = viaje.TipoViaje
-            };
-        }
-
-        public List<Viaje> GetViajeList()
-        {
-            return _query.GetViajeList();
+            return MappingViaje(viaje);
         }
 
         public List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino)
@@ -56,64 +43,7 @@ namespace Application.UseCase.Viajes
 
             foreach (var viaje in viajeList)
             {
-                var listaJsonViajes = _destinoApi.ObtenerViajeList(viaje.ViajeId);
-
-                var listaJsonServicio = _servicioApi.ObtenerServicioList(viaje.ViajeId);
-
-                int ciudadOrigenResponse = 0;
-                int ciudadDestinoResponse = 0;
-
-                List<int> escalas = new List<int>();
-                List<int> servicios = new List<int>();
-
-                foreach (object json in listaJsonViajes)
-                {
-                    string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(json);
-                    JToken token = JToken.Parse(jsonString);
-
-                    int idCiudad = (int)token.SelectToken("ciudad.id");
-                    string tipoCiudad = (string)token.SelectToken("tipo");
-
-                    if (tipoCiudad == "Origen")
-                    {
-                        ciudadOrigenResponse = idCiudad;
-                    }
-
-                    if (tipoCiudad == "Destino")
-                    {
-                        ciudadDestinoResponse = idCiudad;
-                    }
-
-                    if (tipoCiudad == "Escala")
-                    {
-                        escalas.Add(idCiudad);
-                    }
-                }
-
-                foreach (var json in listaJsonServicio)
-                {
-                    string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(json);
-                    JToken token = JToken.Parse(jsonString);
-
-                    int idServicio = (int)token.SelectToken("servicioId");
-
-                    servicios.Add(idServicio);
-                }
-
-                var viajeResponse = new ViajeResponse
-                {
-                    Id = viaje.ViajeId,
-                    TransporteId = viaje.TransporteId,
-                    Duracion = viaje.Duracion,
-                    FechaSalida = viaje.FechaSalida,
-                    FechaLlegada = viaje.FechaLlegada,
-                    TipoViaje = viaje.TipoViaje,
-                    CiudadOrigen = ciudadOrigenResponse,
-                    CiudadDestino = ciudadDestinoResponse,
-                    Escalas = escalas,
-                    Servicios = servicios
-                };
-                viajeResponseList.Add(viajeResponse);
+                viajeResponseList.Add(MappingViaje(viaje));
             }
 
             return viajeResponseList;
@@ -170,15 +100,7 @@ namespace Application.UseCase.Viajes
 
             var viaje = _command.RemoveViaje(viajeId);
 
-            return new ViajeResponse
-            {
-                Id = viaje.ViajeId,
-                TransporteId = viaje.TransporteId,
-                Duracion = viaje.Duracion,
-                FechaSalida = viaje.FechaSalida,
-                FechaLlegada = viaje.FechaLlegada,
-                TipoViaje = viaje.TipoViaje
-            };
+            return MappingViaje(viaje);
         }
 
         public ViajeResponse UpdateViaje(int viajeId, ViajeRequest request)
@@ -206,6 +128,67 @@ namespace Application.UseCase.Viajes
                 FechaSalida = viaje.FechaSalida,
                 FechaLlegada = viaje.FechaLlegada,
                 TipoViaje = viaje.TipoViaje
+            };
+        }
+
+        private ViajeResponse MappingViaje(Viaje viaje)
+        {
+            var listaJsonViajes = _destinoApi.ObtenerViajeList(viaje.ViajeId);
+
+            var listaJsonServicio = _servicioApi.ObtenerServicioList(viaje.ViajeId);
+
+            int ciudadOrigenResponse = 0;
+            int ciudadDestinoResponse = 0;
+
+            List<int> escalas = new List<int>();
+            List<int> servicios = new List<int>();
+
+            foreach (object json in listaJsonViajes)
+            {
+                string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(json);
+                JToken token = JToken.Parse(jsonString);
+
+                int idCiudad = (int)token.SelectToken("ciudad.id");
+                string tipoCiudad = (string)token.SelectToken("tipo");
+
+                if (tipoCiudad == "Origen")
+                {
+                    ciudadOrigenResponse = idCiudad;
+                }
+
+                if (tipoCiudad == "Destino")
+                {
+                    ciudadDestinoResponse = idCiudad;
+                }
+
+                if (tipoCiudad == "Escala")
+                {
+                    escalas.Add(idCiudad);
+                }
+            }
+
+            foreach (var json in listaJsonServicio)
+            {
+                string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(json);
+                JToken token = JToken.Parse(jsonString);
+
+                int idServicio = (int)token.SelectToken("servicioId");
+
+                servicios.Add(idServicio);
+            }
+
+            return new ViajeResponse
+            {
+                Id = viaje.ViajeId,
+                TransporteId = viaje.TransporteId,
+                Duracion = viaje.Duracion,
+                FechaSalida = viaje.FechaSalida,
+                FechaLlegada = viaje.FechaLlegada,
+                TipoViaje = viaje.TipoViaje,
+                CiudadOrigen = ciudadOrigenResponse,
+                CiudadDestino = ciudadDestinoResponse,
+                Escalas = escalas,
+                Servicios = servicios
             };
         }
     }

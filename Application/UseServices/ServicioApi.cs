@@ -26,7 +26,7 @@ namespace Infraestructure.UseServices
             }
             else
             {
-                throw new Exception($"Error al crear viaje ciudad. Código de respuesta: {response.StatusCode}");
+                throw new ArgumentException($"Error al crear viajeServicio. Código de respuesta: {response.StatusCode}");
             }
         }
 
@@ -51,7 +51,7 @@ namespace Infraestructure.UseServices
             }
             else
             {
-                throw new Exception($"Error al crear viaje servicio. Código de respuesta: {response.StatusCode}");
+                throw new ArgumentException($"Error al crear viajeServicio. Código de respuesta: {response.StatusCode}");
             }
         }
     }

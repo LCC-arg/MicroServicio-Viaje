@@ -7,7 +7,7 @@ namespace Application.Interfaces
     {
         PasajeroResponse GetPasajeroById(int pasajeroId);
         List<PasajeroResponse> GetPasajeroList();
-        PasajeroResponse CreatePasajero(PasajeroRequest pasajero);
+        PasajeroResponse CreatePasajero(PasajeroRequest request);
         PasajeroResponse RemovePasajero(int pasajeroId);
         PasajeroResponse UpdatePasajero(int pasajeroId, PasajeroRequest request);
     }
