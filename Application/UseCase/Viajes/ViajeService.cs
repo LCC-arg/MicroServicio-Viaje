@@ -14,13 +14,15 @@ namespace Application.UseCase.Viajes
 
         private readonly IDestinoApi _destinoApi;
         private readonly IServicioApi _servicioApi;
+        private readonly ITransporteApi _transporteApi;
 
-        public ViajeService(IViajeCommand command, IViajeQuery query, IDestinoApi destinoApi, IServicioApi servicioApi)
+        public ViajeService(IViajeCommand command, IViajeQuery query, IDestinoApi destinoApi, IServicioApi servicioApi, ITransporteApi transporteApi)
         {
             _command = command;
             _query = query;
             _destinoApi = destinoApi;
             _servicioApi = servicioApi;
+            _transporteApi = transporteApi;
         }
 
         public ViajeResponse GetViajeById(int viajeId)
@@ -35,9 +37,9 @@ namespace Application.UseCase.Viajes
             return MappingViaje(viaje);
         }
 
-        public List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino)
+        public List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino, int pasajesDisponibles)
         {
-            var viajeList = _query.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId, ciudadOrigen, ciudadDestino);
+            var viajeList = _query.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId, ciudadOrigen, ciudadDestino, pasajesDisponibles);
 
             List<ViajeResponse> viajeResponseList = new List<ViajeResponse>();
 
@@ -51,6 +53,25 @@ namespace Application.UseCase.Viajes
 
         public ViajeResponse CreateViaje(ViajeRequest request)
         {
+            var listaJsonTransporte = _transporteApi.ObtenerCaracteristicaTransporteList();
+
+            string valorResponse = "";
+
+            foreach (var json in listaJsonTransporte)
+            {
+                string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(json);
+                JToken token = JToken.Parse(jsonString);
+
+                int caracteristicaId = (int)token.SelectToken("caracteristicaId");
+                int transporteId = (int)token.SelectToken("transporteId");
+                string valor = (string)token.SelectToken("valor");
+
+                if (caracteristicaId == 1 && transporteId == request.TransporteId)
+                {
+                    valorResponse = valor;
+                }
+            }
+
             var viaje = new Viaje
             {
                 TransporteId = request.TransporteId,
@@ -58,6 +79,7 @@ namespace Application.UseCase.Viajes
                 FechaLlegada = DateTime.Parse(request.FechaLlegada),
                 FechaSalida = DateTime.Parse(request.FechaLlegada),
                 TipoViaje = request.TipoViaje,
+                AsientosDisponibles = int.Parse(valorResponse),
             };
 
             var viajeInserte = _command.InsertViaje(viaje);
@@ -84,6 +106,7 @@ namespace Application.UseCase.Viajes
                 FechaSalida = viaje.FechaSalida,
                 FechaLlegada = viaje.FechaLlegada,
                 TipoViaje = viaje.TipoViaje,
+                AsientosDisponibles = viaje.AsientosDisponibles,
                 CiudadOrigen = request.CiudadOrigen,
                 CiudadDestino = request.CiudadDestino,
                 Escalas = request.Escalas,
@@ -103,7 +126,7 @@ namespace Application.UseCase.Viajes
             return MappingViaje(viaje);
         }
 
-        public ViajeResponse UpdateViaje(int viajeId, ViajeRequest request)
+        public ViajeResponse UpdateViaje(int viajeId, int asientosDisponibles)
         {
             var viaje = _query.GetViajeById(viajeId);
 
@@ -112,23 +135,13 @@ namespace Application.UseCase.Viajes
                 throw new ArgumentException($"No se encontró el viaje con el identificador {viajeId}.");
             }
 
-            viaje.TransporteId = request.TransporteId;
-            viaje.Duracion = request.Duracion;
-            viaje.FechaLlegada = DateTime.Parse(request.FechaLlegada);
-            viaje.FechaSalida = DateTime.Parse(request.FechaSalida);
-            viaje.TipoViaje = request.TipoViaje;
+            int asientos = viaje.AsientosDisponibles -= asientosDisponibles;
+
+            viaje.AsientosDisponibles = asientos;
 
             _command.UpdateViaje(viaje);
 
-            return new ViajeResponse
-            {
-                Id = viaje.ViajeId,
-                TransporteId = viaje.TransporteId,
-                Duracion = viaje.Duracion,
-                FechaSalida = viaje.FechaSalida,
-                FechaLlegada = viaje.FechaLlegada,
-                TipoViaje = viaje.TipoViaje
-            };
+            return MappingViaje(viaje);
         }
 
         private ViajeResponse MappingViaje(Viaje viaje)
@@ -185,6 +198,7 @@ namespace Application.UseCase.Viajes
                 FechaSalida = viaje.FechaSalida,
                 FechaLlegada = viaje.FechaLlegada,
                 TipoViaje = viaje.TipoViaje,
+                AsientosDisponibles = viaje.AsientosDisponibles,
                 CiudadOrigen = ciudadOrigenResponse,
                 CiudadDestino = ciudadDestinoResponse,
                 Escalas = escalas,

@@ -73,6 +73,9 @@ namespace Infraestructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ViajeId"));
 
+                    b.Property<int>("AsientosDisponibles")
+                        .HasColumnType("int");
+
                     b.Property<string>("Duracion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

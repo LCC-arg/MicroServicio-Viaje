@@ -2,6 +2,7 @@ using Application.Interfaces;
 using Application.Interfaces.IApi;
 using Application.UseCase.Pasajeros;
 using Application.UseCase.Viajes;
+using Application.UseServices;
 using Infraestructure.Command;
 using Infraestructure.Persistence;
 using Infraestructure.Querys;
@@ -31,7 +32,7 @@ builder.Services.AddScoped<IViajeQuery, ViajeQuery>();
 
 builder.Services.AddScoped<IDestinoApi, DestinoApi>();
 builder.Services.AddScoped<IServicioApi, ServicioApi>();
-
+builder.Services.AddScoped<ITransporteApi, TransporteApi>();
 
 //CORS deshabilitar
 builder.Services.AddCors(options =>

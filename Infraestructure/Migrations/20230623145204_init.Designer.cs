@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infraestructure.Migrations
 {
     [DbContext(typeof(ViajeContext))]
-    [Migration("20230616171425_init")]
+    [Migration("20230623145204_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -75,6 +75,9 @@ namespace Infraestructure.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ViajeId"));
+
+                    b.Property<int>("AsientosDisponibles")
+                        .HasColumnType("int");
 
                     b.Property<string>("Duracion")
                         .IsRequired()

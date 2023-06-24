@@ -18,11 +18,11 @@ namespace Microservicio_Viaje.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(ViajeResponse), 200)]
-        public IActionResult GetViajeListFilters(string? tipo, string? fechaSalida, string? fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino)
+        public IActionResult GetViajeListFilters(string? tipo, string? fechaSalida, string? fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino, int pasajesDisponibles)
         {
             try
             {
-                var result = _service.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId, ciudadOrigen, ciudadDestino);
+                var result = _service.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId, ciudadOrigen, ciudadDestino, pasajesDisponibles);
                 return new JsonResult(result);
             }
             
@@ -66,11 +66,11 @@ namespace Microservicio_Viaje.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(ViajeResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 404)]
-        public IActionResult UpdateViaje(int id, ViajeRequest request)
+        public IActionResult UpdateViaje(int id, int asientosDisponibles)
         {
             try
             {
-                var result = _service.UpdateViaje(id, request);
+                var result = _service.UpdateViaje(id, asientosDisponibles);
                 return new JsonResult(result);
             }
             catch (ArgumentException ex)

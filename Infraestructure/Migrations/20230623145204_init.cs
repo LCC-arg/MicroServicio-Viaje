@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -20,7 +21,8 @@ namespace Infraestructure.Migrations
                     Duracion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FechaLlegada = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FechaSalida = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TipoViaje = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    TipoViaje = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AsientosDisponibles = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,8 +41,8 @@ namespace Infraestructure.Migrations
                     FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Genero = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumContactoEmergencia = table.Column<int>(type: "int", nullable: false),
-                    ViajeId = table.Column<int>(type: "int", nullable: false),
-                    Nacionalidad = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Nacionalidad = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ViajeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

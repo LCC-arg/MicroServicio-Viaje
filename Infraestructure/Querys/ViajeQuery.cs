@@ -30,7 +30,7 @@ namespace Infraestructure.Querys
             return viajeList;
         }
 
-        public List<Viaje> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino)
+        public List<Viaje> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino, int pasajesDisponibles)
         {
             var viajeList = _context.Viajes.ToList();
 
@@ -107,6 +107,11 @@ namespace Infraestructure.Querys
             if (empresaId != 0)
             {
                 viajeList = viajeList.Where(p => p.TransporteId == empresaId).ToList();
+            }
+
+            if (pasajesDisponibles != 0)
+            {
+                viajeList = viajeList.Where(p => p.AsientosDisponibles >= pasajesDisponibles).ToList();
             }
 
             return viajeList;
