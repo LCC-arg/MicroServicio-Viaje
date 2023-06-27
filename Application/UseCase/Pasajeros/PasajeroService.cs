@@ -115,6 +115,7 @@ namespace Application.UseCase.Pasajeros
         {
             return new PasajeroResponse
             {
+                Id = pasajero.PasajeroId,
                 Nombre = pasajero.Nombre,
                 Apellido = pasajero.Apellido,
                 Dni = pasajero.Dni,
