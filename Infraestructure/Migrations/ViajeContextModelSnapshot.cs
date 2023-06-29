@@ -96,6 +96,38 @@ namespace Infraestructure.Migrations
                     b.HasKey("ViajeId");
 
                     b.ToTable("Viaje", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            ViajeId = 1,
+                            AsientosDisponibles = 50,
+                            Duracion = "1 Hora",
+                            FechaLlegada = new DateTime(2023, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FechaSalida = new DateTime(2023, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TipoViaje = "Ida y vuelta",
+                            TransporteId = 1
+                        },
+                        new
+                        {
+                            ViajeId = 2,
+                            AsientosDisponibles = 60,
+                            Duracion = "2 Hora",
+                            FechaLlegada = new DateTime(2023, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FechaSalida = new DateTime(2023, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TipoViaje = "Ida",
+                            TransporteId = 2
+                        },
+                        new
+                        {
+                            ViajeId = 3,
+                            AsientosDisponibles = 360,
+                            Duracion = "5 Hora",
+                            FechaLlegada = new DateTime(2023, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FechaSalida = new DateTime(2023, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TipoViaje = "Ida y vuelta",
+                            TransporteId = 3
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Pasajero", b =>

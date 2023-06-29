@@ -1,4 +1,6 @@
 ﻿using Domain.Entities;
+using Infraestructure.Persistence.Data;
+using Infraestructure.Persistence.Mappings;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.Persistence
@@ -13,7 +15,10 @@ namespace Infraestructure.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ViajeContext).Assembly);
+            modelBuilder.ApplyConfiguration(new ViajeMappings());
+            modelBuilder.ApplyConfiguration(new ViajeData());
+
+            modelBuilder.ApplyConfiguration(new PasajeroMappings());
         }
     }
 }
