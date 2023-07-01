@@ -7,6 +7,7 @@
         public string FechaLlegada { get; set; }
         public string FechaSalida { get; set; }
         public string TipoViaje { get; set; }
+        public int Precio { get; set; }
         public int CiudadOrigen { get; set; }
         public int CiudadDestino { get; set; }
         public List<int> Escalas { get; set; }

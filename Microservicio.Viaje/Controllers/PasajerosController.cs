@@ -1,7 +1,6 @@
 ﻿using Application.Interfaces;
 using Application.Request;
 using Application.Response;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Microservicio.Viaje.Controllers

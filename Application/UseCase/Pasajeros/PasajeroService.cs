@@ -37,7 +37,7 @@ namespace Application.UseCase.Pasajeros
 
             List<PasajeroResponse> pasajeroResponseList = new List<PasajeroResponse>();
 
-            foreach(var pasajero in pasajeroList) 
+            foreach (var pasajero in pasajeroList)
             {
                 pasajeroResponseList.Add(MappingPasajero(pasajero));
             }
@@ -132,6 +132,7 @@ namespace Application.UseCase.Pasajeros
                     FechaSalida = pasajero.Viaje.FechaSalida,
                     FechaLlegada = pasajero.Viaje.FechaLlegada,
                     TipoViaje = pasajero.Viaje.TipoViaje,
+                    Precio = pasajero.Viaje.Precio,
                 }
             };
         }

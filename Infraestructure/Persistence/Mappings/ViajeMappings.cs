@@ -22,6 +22,7 @@ namespace Infraestructure.Persistence.Mappings
             builder.Property(v => v.FechaLlegada).IsRequired();
             builder.Property(v => v.FechaSalida).IsRequired();
             builder.Property(v => v.TipoViaje).IsRequired();
+            builder.Property(v => v.Precio).IsRequired();
         }
     }
 }

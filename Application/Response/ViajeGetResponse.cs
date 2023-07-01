@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Response
+﻿namespace Application.Response
 {
     public class ViajeGetResponse
     {
@@ -14,5 +8,6 @@ namespace Application.Response
         public DateTime FechaSalida { get; set; }
         public DateTime FechaLlegada { get; set; }
         public string TipoViaje { get; set; }
+        public int Precio { get; set; }
     }
 }

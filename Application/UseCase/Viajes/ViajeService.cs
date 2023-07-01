@@ -80,6 +80,7 @@ namespace Application.UseCase.Viajes
                 FechaSalida = DateTime.Parse(request.FechaLlegada),
                 TipoViaje = request.TipoViaje,
                 AsientosDisponibles = int.Parse(valorResponse),
+                Precio = request.Precio,
             };
 
             var viajeInserte = _command.InsertViaje(viaje);
@@ -107,6 +108,7 @@ namespace Application.UseCase.Viajes
                 FechaLlegada = viaje.FechaLlegada,
                 TipoViaje = viaje.TipoViaje,
                 AsientosDisponibles = viaje.AsientosDisponibles,
+                Precio = viaje.Precio,
                 CiudadOrigen = request.CiudadOrigen,
                 CiudadDestino = request.CiudadDestino,
                 Escalas = request.Escalas,
@@ -199,6 +201,7 @@ namespace Application.UseCase.Viajes
                 FechaLlegada = viaje.FechaLlegada,
                 TipoViaje = viaje.TipoViaje,
                 AsientosDisponibles = viaje.AsientosDisponibles,
+                Precio = viaje.Precio,
                 CiudadOrigen = ciudadOrigenResponse,
                 CiudadDestino = ciudadDestinoResponse,
                 Escalas = escalas,

@@ -9,6 +9,7 @@
         public DateTime FechaSalida { get; set; }
         public string TipoViaje { get; set; }
         public int AsientosDisponibles { get; set; }
+        public int Precio { get; set; }
         public List<Pasajero> Pasajeros { get; set; }
     }
 }

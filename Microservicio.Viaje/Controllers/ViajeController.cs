@@ -25,7 +25,7 @@ namespace Microservicio_Viaje.Controllers
                 var result = _service.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId, ciudadOrigen, ciudadDestino, pasajesDisponibles);
                 return new JsonResult(result);
             }
-            
+
             catch (Exception ex)
             {
                 return NotFound(new BadRequest
