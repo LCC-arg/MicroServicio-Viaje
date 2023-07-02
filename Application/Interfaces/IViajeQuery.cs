@@ -5,7 +5,7 @@ namespace Application.Interfaces
     public interface IViajeQuery
     {
         Viaje GetViajeById(int viajeId);
-        List<Viaje> GetViajeList();
-        List<Viaje> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino, int pasajesDisponibles);
+        Viaje GetViajeList(int transporteId);
+        List<Viaje> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, string empresa, string compania, int ciudadOrigen, int ciudadDestino, int pasajesDisponibles, string orden);
     }
 }

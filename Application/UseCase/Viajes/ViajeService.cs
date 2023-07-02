@@ -37,9 +37,9 @@ namespace Application.UseCase.Viajes
             return MappingViaje(viaje);
         }
 
-        public List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino, int pasajesDisponibles)
+        public List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, string empresa, string compania, int ciudadOrigen, int ciudadDestino, int pasajesDisponibles, string orden)
         {
-            var viajeList = _query.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId, ciudadOrigen, ciudadDestino, pasajesDisponibles);
+            var viajeList = _query.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresa, compania, ciudadOrigen, ciudadDestino, pasajesDisponibles, orden);
 
             List<ViajeResponse> viajeResponseList = new List<ViajeResponse>();
 

@@ -27,5 +27,21 @@ namespace Application.UseServices
                 throw new ArgumentException($"Error al crear viajeServicio. Código de respuesta: {response.StatusCode}");
             }
         }
+
+        public dynamic ObtenerTransporteList()
+        {
+            HttpResponseMessage response = _httpClient.GetAsync("Transporte").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                dynamic viaje = response.Content.ReadAsAsync<dynamic>().Result;
+                return viaje;
+            }
+            else
+            {
+                throw new ArgumentException($"Error al crear viajeServicio. Código de respuesta: {response.StatusCode}");
+            }
+        }
     }
 }

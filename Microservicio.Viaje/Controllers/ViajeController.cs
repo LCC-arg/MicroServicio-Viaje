@@ -18,11 +18,11 @@ namespace Microservicio_Viaje.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(ViajeResponse), 200)]
-        public IActionResult GetViajeListFilters(string? tipo, string? fechaSalida, string? fechaLlegada, int empresaId, int ciudadOrigen, int ciudadDestino, int pasajesDisponibles)
+        public IActionResult GetViajeListFilters(string? tipo, string? fechaSalida, string? fechaLlegada, string? empresa,string? compania ,int ciudadOrigen, int ciudadDestino, int pasajesDisponibles,string? orden = "Menor Precio")
         {
             try
             {
-                var result = _service.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresaId, ciudadOrigen, ciudadDestino, pasajesDisponibles);
+                var result = _service.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresa, compania, ciudadOrigen, ciudadDestino, pasajesDisponibles, orden);
                 return new JsonResult(result);
             }
 

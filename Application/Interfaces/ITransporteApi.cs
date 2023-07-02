@@ -3,5 +3,6 @@
     public interface ITransporteApi
     {
         dynamic ObtenerCaracteristicaTransporteList();
+        dynamic ObtenerTransporteList();
     }
 }
