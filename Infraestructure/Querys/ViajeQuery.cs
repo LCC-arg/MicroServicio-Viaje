@@ -59,7 +59,7 @@ namespace Infraestructure.Querys
 
                 if (viajeList.Count != 0)
                 {
-                    viajeList = viajesCiudadOrigen;
+                    viajeList = viajeList.Intersect(viajesCiudadOrigen).ToList();
                 }
             }
 
@@ -90,52 +90,32 @@ namespace Infraestructure.Querys
 
                 if (viajeList.Count != 0)
                 {
-                    viajeList = viajesCiudadDestino;
+                    viajeList = viajeList.Intersect(viajesCiudadDestino).ToList();
                 }
             }
 
             if (empresa != null)
             {
-                var listaJson = _transporteApi.ObtenerTransporteList();
-                var viajesCiudadOrigen = new List<Viaje>();
-
-                foreach (object json in listaJson)
+                viajeList = viajeList.Where(viaje =>
                 {
-                    string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(json);
+                    var transporte = _transporteApi.ObtenerTransporte(viaje.TransporteId);
+                    string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(transporte);
                     JToken token = JToken.Parse(jsonString);
-
                     string empresaRazonSocial = (string)token.SelectToken("companiaTransporteResponse.razonSocial");
-                    int transporteId = (int)token.SelectToken("id");
-
-                    if (empresa.ToLower() == empresaRazonSocial.ToLower())
-                    {
-                        viajesCiudadOrigen.Add(GetViajeList(transporteId));
-                    }
-                }
-
-                viajeList = viajesCiudadOrigen.Where(item => item != null).ToList();
+                    return empresa.ToLower() == empresaRazonSocial.ToLower();
+                }).ToList();
             }
 
             if (compania != null)
             {
-                var listaJson = _transporteApi.ObtenerTransporteList();
-                var viajesCiudadOrigen = new List<Viaje>();
-
-                foreach (object json in listaJson)
+                viajeList = viajeList.Where(viaje =>
                 {
-                    string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(json);
+                    var transporte = _transporteApi.ObtenerTransporte(viaje.TransporteId);
+                    string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(transporte);
                     JToken token = JToken.Parse(jsonString);
-
                     string empresaRazonSocial = (string)token.SelectToken("tipoTransporteResponse.descripcion");
-                    int transporteId = (int)token.SelectToken("id");
-
-                    if (compania.ToLower() == empresaRazonSocial.ToLower())
-                    {
-                        viajesCiudadOrigen.Add(GetViajeList(transporteId));
-                    }
-                }
-
-                viajeList = viajesCiudadOrigen.Where(item => item != null).ToList();
+                    return compania.ToLower() == empresaRazonSocial.ToLower();
+                }).ToList();
             }
 
             if (fechaSalida != null)

@@ -4,5 +4,6 @@
     {
         dynamic ObtenerCaracteristicaTransporteList();
         dynamic ObtenerTransporteList();
+        dynamic ObtenerTransporte(int viajeId);
     }
 }
