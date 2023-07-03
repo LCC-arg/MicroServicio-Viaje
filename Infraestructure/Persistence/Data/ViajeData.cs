@@ -234,7 +234,7 @@ namespace Infraestructure.Persistence.Data
                     FechaSalida = DateTime.Parse("2023-10-16T15:00:00.514Z"),
                     TipoViaje = "Ida y vuelta",
                     AsientosDisponibles = 100,
-                    Precio = 6180000
+                    Precio = 618000
                 },
 
                 new Viaje

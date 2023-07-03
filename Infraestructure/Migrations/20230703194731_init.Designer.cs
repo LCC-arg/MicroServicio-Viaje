@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infraestructure.Migrations
 {
     [DbContext(typeof(ViajeContext))]
-    [Migration("20230702211628_init")]
+    [Migration("20230703194731_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -309,7 +309,7 @@ namespace Infraestructure.Migrations
                             Duracion = "20 Horas",
                             FechaLlegada = new DateTime(2023, 10, 23, 17, 0, 0, 514, DateTimeKind.Local),
                             FechaSalida = new DateTime(2023, 10, 16, 12, 0, 0, 514, DateTimeKind.Local),
-                            Precio = 6180000,
+                            Precio = 618000,
                             TipoViaje = "Ida y vuelta",
                             TransporteId = 18
                         },

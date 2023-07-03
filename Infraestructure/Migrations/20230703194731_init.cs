@@ -81,7 +81,7 @@ namespace Infraestructure.Migrations
                     { 16, 190, "5 Hora(s)", new DateTime(2023, 9, 4, 5, 30, 0, 514, DateTimeKind.Local), new DateTime(2023, 9, 1, 3, 30, 0, 514, DateTimeKind.Local), 80000, "Ida y vuelta", 16 },
                     { 17, 85, "19 Horas", new DateTime(2023, 8, 30, 12, 0, 0, 514, DateTimeKind.Local), new DateTime(2023, 8, 25, 4, 0, 0, 514, DateTimeKind.Local), 35000, "Ida y vuelta", 22 },
                     { 18, 250, "2 Horas 30 min", new DateTime(1111, 11, 11, 8, 11, 11, 514, DateTimeKind.Local), new DateTime(2023, 11, 8, 11, 30, 0, 514, DateTimeKind.Local), 54500, "Ida", 17 },
-                    { 19, 100, "20 Horas", new DateTime(2023, 10, 23, 17, 0, 0, 514, DateTimeKind.Local), new DateTime(2023, 10, 16, 12, 0, 0, 514, DateTimeKind.Local), 6180000, "Ida y vuelta", 18 },
+                    { 19, 100, "20 Horas", new DateTime(2023, 10, 23, 17, 0, 0, 514, DateTimeKind.Local), new DateTime(2023, 10, 16, 12, 0, 0, 514, DateTimeKind.Local), 618000, "Ida y vuelta", 18 },
                     { 20, 295, "12 Hora(s)", new DateTime(2023, 1, 25, 0, 0, 0, 514, DateTimeKind.Local), new DateTime(2023, 1, 2, 3, 0, 0, 514, DateTimeKind.Local), 435000, "Ida y vuelta", 4 },
                     { 21, 133, "8 Hora(s)", new DateTime(1111, 11, 11, 8, 11, 11, 514, DateTimeKind.Local), new DateTime(2023, 11, 28, 9, 0, 0, 514, DateTimeKind.Local), 130000, "Ida", 5 },
                     { 22, 210, "1 Hora(s) 30min", new DateTime(2023, 12, 10, 7, 0, 0, 514, DateTimeKind.Local), new DateTime(2023, 12, 3, 3, 0, 0, 514, DateTimeKind.Local), 30000, "Ida y vuelta", 10 },
