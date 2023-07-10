@@ -25,7 +25,7 @@ namespace Application.UseCase.Viajes
             _transporteApi = transporteApi;
         }
 
-        public ViajeResponse GetViajeById(int viajeId)
+        public ViajeCompletoResponse GetViajeById(int viajeId)
         {
             var viaje = _query.GetViajeById(viajeId);
 
@@ -37,11 +37,11 @@ namespace Application.UseCase.Viajes
             return MappingViaje(viaje);
         }
 
-        public List<ViajeResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, string empresa, string compania, int ciudadOrigen, int ciudadDestino, int pasajesDisponibles, string orden)
+        public List<ViajeCompletoResponse> GetViajeListFilters(string tipo, string fechaSalida, string fechaLlegada, string empresa, string compania, int ciudadOrigen, int ciudadDestino, int pasajesDisponibles, string orden)
         {
             var viajeList = _query.GetViajeListFilters(tipo, fechaSalida, fechaLlegada, empresa, compania, ciudadOrigen, ciudadDestino, pasajesDisponibles, orden);
 
-            List<ViajeResponse> viajeResponseList = new List<ViajeResponse>();
+            List<ViajeCompletoResponse> viajeResponseList = new List<ViajeCompletoResponse>();
 
             foreach (var viaje in viajeList)
             {
@@ -116,7 +116,7 @@ namespace Application.UseCase.Viajes
             };
         }
 
-        public ViajeResponse RemoveViaje(int viajeId)
+        public ViajeCompletoResponse RemoveViaje(int viajeId)
         {
             if (_query.GetViajeById(viajeId) == null)
             {
@@ -128,7 +128,7 @@ namespace Application.UseCase.Viajes
             return MappingViaje(viaje);
         }
 
-        public ViajeResponse UpdateViaje(int viajeId, int asientosDisponibles)
+        public ViajeCompletoResponse UpdateViaje(int viajeId, int asientosDisponibles)
         {
             var viaje = _query.GetViajeById(viajeId);
 
@@ -146,7 +146,7 @@ namespace Application.UseCase.Viajes
             return MappingViaje(viaje);
         }
 
-        private ViajeResponse MappingViaje(Viaje viaje)
+        private ViajeCompletoResponse MappingViaje(Viaje viaje)
         {
             var listaJsonViajes = _destinoApi.ObtenerViajeList(viaje.ViajeId);
 
@@ -192,10 +192,18 @@ namespace Application.UseCase.Viajes
                 servicios.Add(idServicio);
             }
 
-            return new ViajeResponse
+            var JsonTransporte = _transporteApi.ObtenerTransporte(viaje.TransporteId);
+            string jsonTipoTransporte = Newtonsoft.Json.JsonConvert.SerializeObject(JsonTransporte);
+            JToken tokenTransporte = JToken.Parse(jsonTipoTransporte);
+
+            int idTransporte = (int)tokenTransporte.SelectToken("id");
+            string DescripcionTransporte = (string)tokenTransporte.SelectToken("tipoTransporteResponse.descripcion");
+
+            return new ViajeCompletoResponse
             {
                 Id = viaje.ViajeId,
                 TransporteId = viaje.TransporteId,
+                TipoTransporte = DescripcionTransporte,
                 Duracion = viaje.Duracion,
                 FechaSalida = viaje.FechaSalida,
                 FechaLlegada = viaje.FechaLlegada,
