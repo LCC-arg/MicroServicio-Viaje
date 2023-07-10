@@ -195,9 +195,25 @@ namespace Application.UseCase.Viajes
             var JsonTransporte = _transporteApi.ObtenerTransporte(viaje.TransporteId);
             string jsonTipoTransporte = Newtonsoft.Json.JsonConvert.SerializeObject(JsonTransporte);
             JToken tokenTransporte = JToken.Parse(jsonTipoTransporte);
-
-            int idTransporte = (int)tokenTransporte.SelectToken("id");
             string DescripcionTransporte = (string)tokenTransporte.SelectToken("tipoTransporteResponse.descripcion");
+
+
+            var jsonCiudad = _destinoApi.ObtenerCiudadDestino(ciudadDestinoResponse);
+            string jsonDescripcionCiudad = Newtonsoft.Json.JsonConvert.SerializeObject(jsonCiudad);
+            JToken tokenCiudad = JToken.Parse(jsonDescripcionCiudad);
+            string descripcionCiudad = (string)tokenCiudad.SelectToken("nombre");
+            string imagenCiudad = "";
+            if (ciudadDestinoResponse < 86)  /* HAY Q AGREGAR INFO DE CIUDADES*/
+            {
+
+                var jsonInfoCiudad = _destinoApi.ObtenerInfoCiudadDestino(ciudadDestinoResponse);
+                string jsonImagenCiudad = Newtonsoft.Json.JsonConvert.SerializeObject(jsonInfoCiudad);
+                JToken tokenInfoCiudad = JToken.Parse(jsonImagenCiudad);
+                imagenCiudad = (string)tokenInfoCiudad.SelectToken("imagen");
+            }
+
+
+
 
             return new ViajeCompletoResponse
             {
@@ -212,8 +228,10 @@ namespace Application.UseCase.Viajes
                 Precio = viaje.Precio,
                 CiudadOrigen = ciudadOrigenResponse,
                 CiudadDestino = ciudadDestinoResponse,
+                CiudadDestinoDescripcion= descripcionCiudad,
+                CiudadDestinoImagen = imagenCiudad,
                 Escalas = escalas,
-                Servicios = servicios
+                Servicios = servicios,
             };
         }
     }

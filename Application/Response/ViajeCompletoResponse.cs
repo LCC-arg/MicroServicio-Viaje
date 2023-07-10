@@ -19,6 +19,10 @@ namespace Application.Response
         public int Precio { get; set; }
         public int CiudadOrigen { get; set; }
         public int CiudadDestino { get; set; }
+        public string CiudadDestinoDescripcion { get; set; }
+        public string CiudadDestinoImagen { get; set; }
+
+
         public List<int> Escalas { get; set; }
         public List<int> Servicios { get; set; }
     }

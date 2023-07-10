@@ -30,6 +30,36 @@ namespace Infraestructure.UseServices
                 throw new ArgumentException($"Error al obtener la lista de viajes. Código de respuesta: {response.StatusCode}");
             }
         }
+        public dynamic ObtenerCiudadDestino(int idCiudad)
+        {
+            HttpResponseMessage response = _httpClient.GetAsync($"Ciudad/{idCiudad}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                dynamic ciudad = response.Content.ReadAsAsync<dynamic>().Result;
+                return ciudad;
+            }
+            else
+            {
+                throw new ArgumentException($"Error al obtener la lista de viajes. Código de respuesta: {response.StatusCode}");
+            }
+        }
+        public dynamic ObtenerInfoCiudadDestino(int idCiudad)
+        {
+            HttpResponseMessage response = _httpClient.GetAsync($"InfoCiudad/{idCiudad}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                dynamic infoCiudad = response.Content.ReadAsAsync<dynamic>().Result;
+                return infoCiudad;
+            }
+            else
+            {
+                throw new ArgumentException($"Error al obtener la lista de viajes. Código de respuesta: {response.StatusCode}");
+            }
+        }
 
         public dynamic ObtenerViajeList(int viajeId)
         {
