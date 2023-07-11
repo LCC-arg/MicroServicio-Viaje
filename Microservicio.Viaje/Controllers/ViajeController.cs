@@ -17,7 +17,7 @@ namespace Microservicio_Viaje.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(ViajeResponse), 200)]
+        [ProducesResponseType(typeof(ViajeCompletoResponse), 200)]
         public IActionResult GetViajeListFilters(string? tipo, string? fechaSalida, string? fechaLlegada, string? empresa,string? compania ,int ciudadOrigen, int ciudadDestino, int pasajesDisponibles,string? orden = "Menor Precio")
         {
             try
@@ -45,7 +45,7 @@ namespace Microservicio_Viaje.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ViajeResponse), 200)]
+        [ProducesResponseType(typeof(ViajeCompletoResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 404)]
         public IActionResult GetViajeById(int id)
         {
@@ -64,7 +64,7 @@ namespace Microservicio_Viaje.Controllers
         }
 
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(ViajeResponse), 200)]
+        [ProducesResponseType(typeof(ViajeCompletoResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 404)]
         public IActionResult UpdateViaje(int id, int asientosDisponibles)
         {
@@ -83,7 +83,7 @@ namespace Microservicio_Viaje.Controllers
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType(typeof(ViajeResponse), 200)]
+        [ProducesResponseType(typeof(ViajeCompletoResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 404)]
         public IActionResult RemoveViaje(int id)
         {

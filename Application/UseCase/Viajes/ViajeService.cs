@@ -203,14 +203,13 @@ namespace Application.UseCase.Viajes
             JToken tokenCiudad = JToken.Parse(jsonDescripcionCiudad);
             string descripcionCiudad = (string)tokenCiudad.SelectToken("nombre");
             string imagenCiudad = "";
-            if (ciudadDestinoResponse < 86)  /* HAY Q AGREGAR INFO DE CIUDADES*/
-            {
+       
 
                 var jsonInfoCiudad = _destinoApi.ObtenerInfoCiudadDestino(ciudadDestinoResponse);
                 string jsonImagenCiudad = Newtonsoft.Json.JsonConvert.SerializeObject(jsonInfoCiudad);
                 JToken tokenInfoCiudad = JToken.Parse(jsonImagenCiudad);
                 imagenCiudad = (string)tokenInfoCiudad.SelectToken("imagen");
-            }
+            
 
 
 
